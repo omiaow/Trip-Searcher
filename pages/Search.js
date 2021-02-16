@@ -40,7 +40,7 @@ class Search extends React.Component {
       const fromDate = parsed.fromDate;
       const toDate = parsed.toDate;
       this.setState({ query: query, data: [], myLocation: origin, fromDate: new Date(fromDate) });
-      //flightsCall({fromDate: fromDate, toDate: toDate, origin: origin, destinations: destinations}, this.updateData);
+      flightsCall({fromDate: fromDate, toDate: toDate, origin: origin, destinations: destinations}, this.updateData);
     }
   }
 

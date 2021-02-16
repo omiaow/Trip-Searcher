@@ -1,2 +1,2 @@
 # Trip-searcher-sinlge-page-application-on-React.js
-Visible Trip searcher project
+Check the page online from Heroku server: https://fareflyer.herokuapp.com/
