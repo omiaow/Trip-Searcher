@@ -1,0 +1,1391 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  min-width: 300px;
+  margin: 0;
+}
+
+body{
+  font-family:Arial, Verdana, Helvetica, sans-serif;
+  position: relative;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+footer {
+  background-color: #30475e;
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+footer p{
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+
+.header{
+  width: 100%;
+}
+
+.searchPanel{
+  width: 100%;
+  background-color: #30475e;
+}
+
+.searchPanel h1{
+  color: #ffffff;
+  width: 86%;
+  margin-top:	0px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.5em;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.searchPanel #errorMessage{
+  width: 95%;
+  background-color: #30475e;
+  padding: 5px 0;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  text-align: center;
+}
+
+/* ----- RESPONSIVE VARIANT ----- */
+.responsive_search{
+  margin-top: 15px;
+  width: 100%;
+  min-height: 270px;
+  max-width: 420px;
+}
+
+.responsive_search .from{
+  width: 90%;
+  margin-top: 10px;
+  min-height: 40px;
+  padding: 1px 0px;
+  border-radius: 10px;
+  border: 0.5px solid #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.responsive_search .from h2{
+  color: white;
+  width: 16%;
+  max-width: 60px;
+  margin-top: -13px;
+  margin-bottom: 0px;
+  margin-left: 5%;
+  background: #34495E;
+  font-variant: small-caps;
+  text-align: center;
+  font-size: 17px;
+}
+
+.responsive_search .from p{
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  margin-left: 3%;
+  text-align: left;
+  font-size: 15px;
+  font-family: Arial, Courier, sans-serif;
+}
+
+.responsive_search .to{
+  width: 90%;
+  margin-top: 20px;
+  min-height: 40px;
+  padding: 1px 0px;
+  border-radius: 10px;
+  border: 0.5px solid #fff;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.responsive_search .to .icon{
+  width: 10%;
+  max-width: 30px;
+  margin-left: 1%;
+  margin-top: 5px;
+  height: 30px;
+  border-radius: 10px;
+  float: left;
+  background: url("images/search_icon.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.responsive_search .to span{
+  color: #34495E;
+  max-width: 88%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 1%;
+  margin-top: 12px;
+  text-align: center;
+  float: left;
+}
+
+.responsive_search .date{
+  width: 90%;
+  margin-top: 25px;
+  min-height: 40px;
+  padding: 1px 0px;
+  border-radius: 10px;
+  border: 0.5px solid #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.responsive_search .date h2{
+  color: white;
+  width: 16%;
+  max-width: 60px;
+  margin-top: -13px;
+  margin-bottom: 0px;
+  margin-left: 5%;
+  background: #34495E;
+  font-variant: small-caps;
+  text-align: center;
+  font-size: 17px;
+}
+
+.responsive_search .date p{
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  margin-left: 3%;
+  text-align: left;
+  font-size: 15px;
+  font-family: Arial, Courier, sans-serif;
+}
+
+.responsive_search input[type=submit]{
+  width: 90%;
+  margin-top: 25px;
+  height: 43px;
+  background-color: #7EC9A1;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #7EC9A1;
+  cursor: pointer;
+  overflow: hidden;
+  font-variant: small-caps;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.responsive_search .input{
+	background-color: white;
+  position: fixed;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}
+
+.input .exit{
+  margin-top: 10px;
+  width: 40px;
+  margin-right: 3%;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 2.2em;
+  float: right;
+  text-align: center;
+  transform: rotate(-45deg);
+  color: #34495E;
+}
+
+.input .inputName{
+  margin-top: 10px;
+  width: 70%;
+  margin-left: 5%;
+  height: 40px;
+  float: left;
+  color: #34495E;
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.input .fromInput{
+  margin-top: 10px;
+  width: 86%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #34495E;
+  font-size: 1.1em;
+  outline: none;
+  padding-left: 3%
+}
+
+.input .collectTag{
+  margin-top: 5px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  min-height: 5px;
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input .collectTag .tag{
+  height: 30px;
+  max-width: 100%;
+  background-color: #7EC9A1;
+  border-radius: 15px;
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 2%;
+  margin-bottom: 5px;
+}
+
+.input .collectTag span{
+  color: white;
+  max-width: 88%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 8px;
+}
+
+.input .collectTag .close{
+  float: right;
+  margin-left: 5px;
+  margin-right: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(-45deg);
+  font-size: 1.4em;
+  background-color: #6D9780;
+  color: white;
+}
+
+.input .toInput{
+  margin-top: 5px;
+  width: calc(90% - 60px);
+  margin-left: 5%;
+  height: 38px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #34495E;
+  font-size: 1.1em;
+  outline: none;
+  padding-left: 3%;
+  float: left;
+}
+
+.input button{
+  margin-top: 5px;
+  width: 50px;
+  height: 42px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #34495E;
+  outline: none;
+  float: left;
+  background: url("images/next.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: #34495E;
+}
+
+.input .autocomplete{
+  margin-top: 10px;
+  width: 100%;
+  min-height: 5px;
+  max-height: 340px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  float: left;
+}
+
+.input .autocomplete .autocompleteTag{
+  width: 100%;
+  min-height: 30px;
+  float: left;
+  color: #34495E;
+  font-size: 1.3em;
+  padding: 9px 0;
+  padding-left: 5%;
+  border-bottom: 1px solid #C8C8C8;
+}
+
+
+.input .weekNames{
+  width: 90%;
+  min-height: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  float: left;
+  border-bottom: 1px solid #34495E;
+}
+
+.input .weekNames .weekdays{
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  color: #34495E;
+}
+
+.input .weekNames .weekends{
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  color: #A93226;
+}
+
+.input .monthBox{
+  width: 90%;
+  min-height: 10px;
+  max-height: 400px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5px;
+  float: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.input .monthBox .monthName{
+  width: 90%;
+  min-height: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 10px;
+  float: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: #34495E;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.input .monthBox .dates{
+  width: 100%;
+  min-height: 10px;
+  float: left;
+}
+
+.input .monthBox .dates .empty{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 40px;
+  float: left;
+}
+
+.input .monthBox .dates .passed{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: gray;
+}
+
+.input .monthBox .dates .today{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: #A93226;
+}
+
+.input .monthBox .dates .days{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: #34495E;
+}
+
+.input .monthBox .dates .choosedFrom{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  border-radius: 15px 0 0 15px;
+  background-color: #34495E;
+}
+
+.input .monthBox .dates .selected{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  background-color: #34495E;
+}
+
+.input .monthBox .dates .choosedTill{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+  border-radius: 0 15px 15px 0;
+  background-color: #34495E;
+}
+
+.input input[type=submit]{
+  width: 90%;
+  margin-top: 15px;
+  height: 43px;
+  background-color: #7EC9A1;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #7EC9A1;
+  cursor: pointer;
+  overflow: hidden;
+  font-variant: small-caps;
+  font-size: 22px;
+  font-weight: bold;
+  outline: none;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+/* ----- DESKTOP VARIANT ----- */
+.desktop_search{
+  width: 95%;
+  min-height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desktop_search .from{
+ width: 18%;
+ float: left;
+ min-height: 60px;
+}
+
+.desktop_search h4{
+  float: left;
+  margin: 0px;
+  width: 100%;
+  font-variant: small-caps;
+  color: #fff;
+}
+
+.desktop_search .from .autocomplete{
+  width: 95%;
+  position: relative;
+  display: inline-block;
+}
+
+.desktop_search .from .fromTag{
+  width: 100%;
+  min-height: 40px;
+  background-color: white;
+  border-radius: 10px 0 0 10px;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5%;
+  padding-right: 1%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.desktop_search .from .fromTag .autocomplete-items {
+  position: absolute;
+  border-top: 1px solid #30475e;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 8px 0 8px 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.desktop_search .from .fromTag .tag{
+  height: 30px;
+  max-width: 80%;
+  background-color: #7EC9A1;
+  border-radius: 13px;
+  padding-left: 2%;
+  padding-right: 2%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 2%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.desktop_search .from .fromTag .tag span{
+  max-width: 88%;
+  margin-top: -2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desktop_search .to{
+  width: 54%;
+  float: left;
+  min-height: 60px;
+}
+
+.desktop_search .to p{
+  float: right;
+  margin: 0px;
+  margin-right: 3%;
+  font-variant: small-caps;
+  font-size: 0.8em;
+  color: lightgrey;
+}
+
+.desktop_search .to .autocomplete{
+  position: relative;
+  display: inline-block;
+  width: 98%;
+}
+
+.desktop_search .to .toTag{
+  width: 100%;
+  min-height: 40px;
+  background-color: white;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.desktop_search .to .toTag .autocomplete-items {
+  position: absolute;
+  border-top: 1px solid #30475e;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 0 0 8px 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.desktop_search .to .toTag .tag{
+  height: 30px;
+  background-color: #7EC9A1;
+  border-radius: 13px;
+  padding-left: 1%;
+  padding-right: 0.75%;
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.desktop_search .to .toTag .tag span{
+  margin-top: -2px;
+  white-space: nowrap;
+}
+
+/* ----- INPUT COMMONS ----- */
+
+.desktop_search .tag .close{
+  margin-left: 5px;
+  min-width: 22px;
+  min-height: 22px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  transform: rotate(-45deg);
+  font-size: 1.5em;
+  background-color: #6D9780;
+}
+
+.desktop_search .tag .close:hover{
+  background-color: #298353;
+  color: white;
+}
+
+.desktop_search .inputText{
+  border: 0;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+  min-width: 10%;
+  height: 40px;
+}
+
+.desktop_search .autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  min-height: 20px;
+  color: #30475e;
+}
+
+.desktop_search .autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.desktop_search .autocomplete-active {
+  background-color: #7EC9A1 !important;
+  color: #ffffff !important;
+}
+
+/* ----- DATES ----- */
+
+.desktop_search .dates{
+  width: 16%;
+  float: left;
+  min-height: 60px;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.desktop_search .dates #inputDate{
+  width: 100%;
+  float: right;
+  height: 52px;
+  background-color: white;
+  outline-width: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: Arial, Courier, sans-serif;
+  cursor: pointer;
+  padding: 15px 0;
+  color: #34495E;
+  text-overflow: ellipsis;
+}
+
+.desktop_search .dates .calendarWindow{
+	position: absolute;
+	height: 315px;
+	width: 200%;
+  min-width: 460px;
+	margin-top: 70px;
+  margin-left: -275px;
+	background-color: White;
+	border-radius: 10px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	border-bottom: 1px solid #34495E;
+	border-top: 1px solid white;
+	float: right;
+  z-index: 2;
+	box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.3), 8px 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.desktop_search .dates .calendarWindow:after{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-bottom: 0px solid white;
+	border-right:  0px solid white;
+	border-top: 1px solid white;
+	border-left:  1px solid white;
+	top: -11px;
+	content: '';
+	transform: rotate(45deg);
+	margin-top: 5px;
+	margin-left: 35%;
+	background-color: #34495E;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader{
+	height: 60px;
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	background-color: #34495E;
+  font-variant: small-caps;
+  font-size: 1em;
+  color: white;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .left{
+  height: 35px;
+  width: 4%;
+  margin-left: 1%;
+  float: left;
+  cursor: pointer;
+  background: url("images/wlefts.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .monthDescription{
+  height: 40px;
+  width: 88%;
+  float: left;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .monthDescription .leftSide{
+  width: 45%;
+  margin-top: 10px;
+  color: White;
+  float: left;
+  font-weight: bold;
+  font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .monthDescription .rightSide{
+  width: 45%;
+  margin-top: 10px;
+  color: white;
+  float: right;
+  font-weight: bold;
+  font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .right{
+  height: 35px;
+  width: 4%;
+  margin-right: 1%;
+  float: right;
+  cursor: pointer;
+  background: url("images/wrights.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth{
+  width: 100%;
+  height: 255px;
+  border-radius: 0 0 10px 10px;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .leftMonth{
+  height: 250px;
+  width: 49%;
+  margin-left: 0.5%;
+  float: left;
+  border-right: 1px solid #34495E;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .rightMonth{
+  height: 250px;
+  width: 49%;
+  margin-right: 0.5%;
+  float: right;
+  border-left: 1px solid #34495E;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .weekNames{
+  width: 100%;
+  height: 35px;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .weekNames .weekdays{
+  width: 14.2%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  float: left;
+  color: #34495E;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .weekNames .weekends{
+  width: 14.2%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  float: left;
+  color: #A93226;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .empty{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 34px;
+  margin: 0;
+  float: left;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .past{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 14px;
+  float: left;
+  color: #A4A4A4;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .days{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 14px;
+  float: left;
+  color: #34495E;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+  cursor: pointer;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .today{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 14px;
+  float: left;
+  color: #A93226;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+  cursor: pointer;
+  background-color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .today:hover{
+  background-color: #FF4D41;
+  color: white;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .inserting{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 14px;
+  float: left;
+  color: white;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+  cursor: pointer;
+  background-color: #34495E;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .selected{
+  width: 14.2%;
+  margin-top: 1px;
+  height: 14px;
+  float: left;
+  color: white;
+  font-family: "Gill Sans", sans-serif;
+  border-radius: 15px 0 0 15px;
+  font-variant: normal;
+  cursor: pointer;
+  background-color: #34495E;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .days:hover{
+  background-color: #34495E;
+  color: #fff;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .selected:hover{
+  background-color: #A93226;
+  border-radius: 0;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .inserting:hover{
+  background-color: #7EC9A1;
+}
+
+.desktop_search input[type=submit]{
+  width: 11%;
+  height: 52px;
+  background-color: #7EC9A1;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  border: 0;
+  cursor: pointer;
+  float: right;
+  overflow: hidden;
+  font-variant: small-caps;
+  font-size: 1em;
+  font-weight: bold;
+  outline: none;
+  margin-top: 18px;
+}
+
+
+/* ----- RESULTS PAGE ----- */
+.result{
+  width: 100%;
+  min-height: 110px;
+  margin-bottom: 10px;
+}
+
+.result .header{
+  width: 100%;
+  min-height: 10px;
+  float: left;
+  margin-top: 10px;
+}
+
+.loading{
+  width: 100%;
+  height: 8px;
+}
+
+.result .location, .total{
+  color: #34495E;
+  min-width: 1%;
+  float: left;
+  margin: 0px;
+  margin-left: 5%;
+  margin-bottom: 5px;
+  font-size: 1.5em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.result .total{
+  float: right;
+  margin-right: 5%;
+}
+
+.result .ticket_list{
+  min-height: 100px;
+  display: flex;
+  float: left;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  border-top: 1px solid #34495E;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.result .ticket_list::-webkit-scrollbar {
+  display: none;
+}
+
+.result .left_button{
+  width: 2%;
+  margin-right: 1%;
+  margin-left: 2%;
+  cursor: pointer;
+  height: 70px;
+  float: left;
+  background: url("images/lefts.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.result .right_button{
+  width: 2%;
+  margin-left: 1%;
+  margin-right: 2%;
+  cursor: pointer;
+  height: 70px;
+  float: left;
+  background: url("images/rights.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.result .ticket_list .daily_list{
+  width: 200px;
+  min-height: 100px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  flex: 0 0 auto;
+}
+
+.result .ticket_list .daily_list .header{
+	width: 100%;
+	height: 80px;
+	margin-bottom: 5px;
+}
+
+.result .ticket_list .daily_list .header .day{
+	float: left;
+	width: 30%;
+	color: #34495E;
+  font-size: 55px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 5px;
+	margin-left: 5%;
+}
+
+.result .ticket_list .daily_list .header .month_weeks{
+	float: left;
+	width: 65%;
+	height: 100%;
+}
+
+.result .ticket_list .daily_list .header .month_weeks .weekend, .weekday, .month{
+	float: left;
+	width: 80%;
+	color: #922B21;
+  font-size: 18px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-left: 15px;
+  letter-spacing: 0.3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.result .ticket_list .daily_list .header .month_weeks .weekday{
+	color: #34495E;
+}
+
+.result .ticket_list .daily_list .header .month_weeks .month{
+	color: #34495E;
+	margin-top: 13px;
+}
+
+.result .ticket_list .daily_list .direct_ticket, .nondirect_ticket{
+	float: left;
+	width: 96%;
+	height: 33px;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 33px;
+	border: 1px solid #7EC9A1;
+	color: #34495E;
+}
+
+.result .ticket_list .daily_list .nondirect_ticket{
+  border: 1px solid #EC7063;
+}
+
+.result .ticket_list .daily_list .direct_ticket:hover{
+	background-color: #7EC9A1;
+	color: #ffffff;
+}
+
+.result .ticket_list .daily_list .direct_ticket .city{
+	float: left;
+  font-size: 15px;
+	margin-left: 5%;
+	width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.result .ticket_list .daily_list .nondirect_ticket:hover{
+	background-color: #EC7063;
+	color: #ffffff;
+}
+
+.result .ticket_list .daily_list .nondirect_ticket .city{
+	float: left;
+  font-size: 15px;
+	margin-left: 5%;
+	width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.result .ticket_list .daily_list .empty{
+	float: left;
+	width: 96%;
+	height: 33px;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	vertical-align: middle;
+	line-height: 33px;
+	border: 1px solid grey;
+	color: grey;
+  text-align: center;
+}
+
+.result .color_description{
+	width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+	min-height: 35px;
+  overflow: auto;
+}
+
+.result .color_description .transit{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin-top: 10px;
+	background-color: #EC7063;
+}
+
+.result .color_description .direct{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin-top: 10px;
+	background-color: #7EC9A1;
+}
+
+.result .color_description span{
+	color: #34495E;
+	min-width: 100px;
+	float: left;
+	margin-top: 8px;
+	margin-left: 10px;
+	font-size: 15px;
+	font-weight: bold;
+  font-variant: small-caps;
+	letter-spacing: 0.2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ----- TICKETS ----- */
+
+.result .tickets{
+  float: left;
+  width: 100%;
+  min-height: 0px;
+  background-color: #34495E;
+  margin-bottom: 1px;
+}
+
+.result .tickets h3{
+  color: #ffffff;
+  width: 90%;
+  margin-top:	5px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2em;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.result .tickets .left_button{
+  width: 2%;
+  margin-top: 30px;
+  margin-right: 1%;
+  margin-left: 2%;
+  cursor: pointer;
+  height: 70px;
+  float: left;
+  background: url("images/wlefts.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.result .tickets .right_button{
+  width: 2%;
+  margin-top: 30px;
+  margin-left: 1%;
+  margin-right: 2%;
+  cursor: pointer;
+  height: 70px;
+  float: left;
+  background: url("images/wrights.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.result .tickets .ticket_screen{
+  width: 90%;
+  min-height: 100px;
+  display: flex;
+  float: left;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  border-top: 1px solid #34495E;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-bottom: 10px;
+}
+
+.result .tickets .ticket_screen::-webkit-scrollbar {
+  display: none;
+}
+
+.result .tickets .ticket_screen .ticket{
+  width: 220px;
+  min-height: 220px;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #ffffff;
+  cursor: pointer;
+  float: left;
+  flex: 0 0 auto;
+}
+
+.result .tickets .ticket_screen .ticket:hover{
+ box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.29), 0 3px 15px 0 rgba(0, 0, 0, 0.29);
+}
+
+.result .tickets .ticket_screen .ticket .close{
+  display: none;
+}
+
+.result .tickets .ticket_screen .ticket .close{
+	width: 18px;
+	height: 18px;
+	float: right;
+	border-radius: 10px;
+	border: 1px solid #A93226;
+	background-color: #A93226;
+	margin-top: -10px;
+	margin-right: -8px;
+	margin-bottom: -15px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 18px;
+	font-size: 20px;
+	color: #ffffff;
+	transform: rotate(45deg);
+  display: block;
+  cursor: pointer;
+}
+
+.result .tickets .ticket_screen .ticket .border{
+  width: 200px;
+  min-height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 9px;
+  margin-right: 9px;
+  float: left;
+  border: 1px dashed #34495E;
+}
+
+.result .tickets .ticket_screen .ticket .border .description{
+  float: left;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 0.8em;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: #A93226;
+}
+
+.result .tickets .ticket_screen .ticket .border .data_words{
+  float: left;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: 0.9em;
+  text-align: center;
+  color: #34495E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result .tickets .ticket_screen .ticket .border .price{
+  float: left;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: #34495E;
+}
+
+.result .tickets .ticket_screen .ticket .border .company{
+  float: left;
+  width: 96%;
+  margin-top: 5px;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: 0.9em;
+  border-top: 1px solid #34495E;
+  padding: 5px 0;
+  text-align: center;
+  color: #D35400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
