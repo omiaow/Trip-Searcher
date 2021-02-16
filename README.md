@@ -1,9 +1,9 @@
 # Trip-searcher-sinlge-page-application-on-React.js
-This application will help people to find cheapest trip for the multiple cities.
+This application will helps people to find the cheapest trip to the multiple cities.
 Check the page online from Heroku server with next steps.
 
 ## Steps:
-1) Go to the [this page](https://www.google.com).
+1) Go to [this page](https://fareflyer.herokuapp.com/).
 2) Choose your location where you start your trip.
 3) Choose up to 5 destination cities.
 4) Select the date interval you want to travel (your vacation dates) and press the search button.
