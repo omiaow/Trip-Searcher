@@ -103,7 +103,7 @@ class AutocompleteTo extends React.Component {
               className="inputText"
               type="text"
               value={this.state.value}
-              placeholder={(this.state.locs.length > 0) ? "" : "From where? (city, country)"}
+              placeholder={(this.state.locs.length > 0) ? "" : "To where? (city, country)"}
               onChange={(e) => (this.state.locs.length >= this.state.limit) ? "" : this.findOptions(e.target.value)}
               onKeyDown={(e) => this.keyDown(e.keyCode)}
               onFocus={() => this.setState({focuse: true})}

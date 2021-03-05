@@ -21,15 +21,6 @@ class Search extends React.Component {
     this.findFlights(this.props.location.search);
   }
 
-  updateData = (total, loading, data) => {
-    if(data !== undefined){
-      this.state.data.push(data);
-      this.setState({total: total, loading: loading, data: this.state.data});
-    }else{
-      this.setState({total: total, loading: loading});
-    }
-  }
-
   findFlights(query){
     if(this.state.query !== query && query.length > 0){
       const queryString = require('query-string');
@@ -40,23 +31,39 @@ class Search extends React.Component {
       const fromDate = parsed.fromDate;
       const toDate = parsed.toDate;
       this.setState({ query: query, data: [], myLocation: origin, fromDate: new Date(fromDate) });
-      flightsCall({fromDate: fromDate, toDate: toDate, origin: origin, destinations: destinations}, this.updateData);
+      flightsCall({fromDate: fromDate, toDate: toDate, origin: origin, destinations: destinations}, (total, loading, data) => {
+        if(data !== undefined){
+          this.state.data.push(data);
+          this.setState({total: total, loading: loading, data: this.state.data});
+        }else{
+          this.setState({total: total, loading: loading});
+        }
+      });
     }
   }
 
   render(){
     return (
       <>
+
         <div className="searchPanel" style={{minHeight: window.innerHeight/3}}>
           <div className="header" style={{height: '25px'}}></div>
           <h1>Search Flights</h1>
           <SearchTool/>
         </div>
-        <div className="loading" style={{width: `${(100*this.state.loading)/this.state.total}%`, backgroundColor: ((this.state.total !== this.state.loading) ? ('#FF8B8B') : ('#7EC9A1'))}}/>
-        <Results data={this.state.data} myLocation={this.state.myLocation} fromDate={this.state.fromDate}/>
+
+        <div className="loading"
+             style={{width: `${(100*this.state.loading)/this.state.total}%`,
+                     backgroundColor: ((this.state.total !== this.state.loading) ? '#FF8B8B' : '#7EC9A1')}}/>
+
+        <Results data={this.state.data}
+                 myLocation={this.state.myLocation}
+                 fromDate={this.state.fromDate}
+                 switchTrip={(this.state.total !== this.state.loading)}/>
       </>
     );
   }
+
 }
 
 export default withRouter(Search);

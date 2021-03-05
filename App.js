@@ -12,11 +12,10 @@ function App() {
           <main>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/home" component={Home}/>
-            <Route exact path="/search" component={Search}/>
+            <Route path="/search" component={Search}/>
           </Switch>
           </main>
-          <footer><p>FareFlyer &copy;</p></footer>
+          <footer><p>Footer</p></footer>
         </div>
       </div>
     </BrowserRouter>
