@@ -88,12 +88,22 @@ class Tickets extends React.Component {
 
             data[i].flights[j].tickets.forEach( (item, k) => {
 
-              const ticket = (
-                (item.direct) ?
-                  ( <div className="direct_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> ) :
-                  ( <div className="nondirect_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> )
-              );
-              tickets.push(ticket);
+              let exist = true;
+
+              this.state.tickets.forEach( check => {
+                if(check.destination.id == item.destination.id){
+                  exist = false;
+                }
+              });
+
+              if(exist){
+                const ticket = (
+                  (item.direct) ?
+                    ( <div className="direct_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> ) :
+                    ( <div className="nondirect_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> )
+                );
+                tickets.push(ticket);
+              }
 
             });
 
