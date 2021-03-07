@@ -15,7 +15,9 @@ class Calendar extends React.Component {
   chooseDate = (date) => {
     let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
     let placeholder = `${date.getDate()} ${month[date.getMonth()]}, ${date.getFullYear()}`;
-    let value = date.toISOString().slice(0, 10);
+    let newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + 1);
+    let value = newDate.toISOString().slice(0, 10);
     if(this.state.departure === undefined){
       this.setState({departure: date, placeholderFrom: placeholder, valueFrom: value});
     }else if(this.state.arrival === undefined && date > this.state.departure){
