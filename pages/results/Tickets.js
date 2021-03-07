@@ -99,8 +99,8 @@ class Tickets extends React.Component {
               if(exist){
                 const ticket = (
                   (item.direct) ?
-                    ( <div className="direct_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> ) :
-                    ( <div className="nondirect_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city }</div></div> )
+                    ( <div className="direct_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city } ({ item.destination.iata })</div></div> ) :
+                    ( <div className="nondirect_ticket" onClick={ this.chooseTicket.bind(null, item) } key={k}><div className="city">{ item.price }$ { item.destination.city } ({ item.destination.iata })</div></div> )
                 );
                 tickets.push(ticket);
               }

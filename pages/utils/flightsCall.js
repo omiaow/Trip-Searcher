@@ -1,4 +1,5 @@
 import AirportsList from './airports.json';
+import { sortPrices } from './tools.js';
 
 let loading;
 
@@ -62,6 +63,7 @@ async function searchFlights(currentDate, update, locations, total){
     }
 
     flights.tickets = ticketList.flat();
+    flights.tickets = sortPrices(flights.tickets);
     dayList.flights.push(flights);
   }
 

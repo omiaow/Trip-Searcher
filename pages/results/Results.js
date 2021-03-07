@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 
 class Result extends React.Component {
-  state = {trip: false}
+  state = { trip: false }
 
   componentDidMount(){
     this.setState({trip: false});

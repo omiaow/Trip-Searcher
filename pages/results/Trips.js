@@ -1,14 +1,14 @@
 import React from 'react';
 import RenderTickets from './RenderTickets';
 import { Switch, Route } from 'react-router-dom';
-import createState from '../utils/createState';
+import { createFilterState, sortPrices } from '../utils/tools';
 import searchEngine from '../utils/searchEngine';
 
 class Result extends React.Component {
 
   componentDidMount(){
     if(this.props.data != undefined && this.props.data.length != 0 && this.props.myLocation != undefined)
-      this.setState(createState(this.props.data, this.props.myLocation));
+      this.setState(createFilterState(this.props.data, this.props.myLocation));
   }
 
   filterPanel(filter){
@@ -84,6 +84,8 @@ class Result extends React.Component {
     }
 
     let tripList = [];
+
+    trips = sortPrices(trips);
 
     trips.forEach( (item, i) => {
       let fromDate = new Date(item.tickets[0].date);
