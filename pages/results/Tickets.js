@@ -1,5 +1,6 @@
 import React from 'react';
 import RenderTickets from './RenderTickets';
+import {weekNames, monthNames} from '../utils/tools';
 
 class Tickets extends React.Component {
 
@@ -67,8 +68,6 @@ class Tickets extends React.Component {
 
   generateFlights(data, origin){
 
-    let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let weeks = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let result = [];
 
     if(data !== undefined && origin !== undefined){
@@ -117,10 +116,10 @@ class Tickets extends React.Component {
               <div className="header">
                 <div className="day">{ date.getDate() }</div>
                 <div className="month_weeks">
-                  <div className="month">{ month[ date.getMonth() ] }</div>
+                  <div className="month">{ monthNames[ date.getMonth() ] }</div>
                   {(date.getDay() === 6 || date.getDay() === 0) ?
-                     (<div className="weekend">{ weeks[ date.getDay() ] }</div>) :
-                     (<div className="weekday">{ weeks[ date.getDay() ] }</div>)}
+                     (<div className="weekend">{ weekNames[ date.getDay() ] }</div>) :
+                     (<div className="weekday">{ weekNames[ date.getDay() ] }</div>)}
                 </div>
               </div>
               { tickets }

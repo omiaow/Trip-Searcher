@@ -1,20 +1,20 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import {monthNames, shortMonthNames} from '../../utils/tools';
 
 class Calendar extends React.Component {
 
   state = {
     valueFrom: "",
     valueTo: "",
-    placeholderFrom: "From where?",
-    placeholderTo: "To where?",
+    placeholderFrom: "From when?",
+    placeholderTo: "To when?",
     departure: undefined,
     arrival: undefined
   }
 
   chooseDate = (date) => {
-    let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-    let placeholder = `${date.getDate()} ${month[date.getMonth()]}, ${date.getFullYear()}`;
+    let placeholder = `${date.getDate()} ${shortMonthNames[date.getMonth()]}, ${date.getFullYear()}`;
     let newDate = new Date(date);
     newDate.setDate(newDate.getDate() + 1);
     let value = newDate.toISOString().slice(0, 10);
@@ -54,7 +54,6 @@ class Calendar extends React.Component {
   }
 
   createMonth(givenDate, i){
-    let monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let table = [];
     let today = givenDate, y = today.getFullYear(), m = today.getMonth();
     let firstDay = new Date(y, m, 1);
@@ -89,7 +88,7 @@ class Calendar extends React.Component {
       return day - 1;
     }
 
-    return (<div key={i}><div className="monthName">{monthList[lastDay.getMonth()]}</div><div className="dates">{table}</div></div>);
+    return (<div key={i}><div className="monthName">{monthNames[lastDay.getMonth()]}</div><div className="dates">{table}</div></div>);
   }
 
   show(){

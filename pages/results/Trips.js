@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderTickets from './RenderTickets';
 import { Switch, Route } from 'react-router-dom';
-import { createFilterState, sortPrices } from '../utils/tools';
+import { createFilterState, sortPrices, monthNames } from '../utils/tools';
 import searchEngine from '../utils/searchEngine';
 
 class Result extends React.Component {
@@ -72,7 +72,6 @@ class Result extends React.Component {
   }
 
   renderTrips(trips){
-    let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     function names(tickets){
       let name = "";
@@ -102,7 +101,7 @@ class Result extends React.Component {
                  }
                }}>
             <span>Trip to {names(item.tickets)}</span>
-            <p>{fromDate.getDate()} {month[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {month[toDate.getMonth()]}, {toDate.getFullYear()}</p>
+            <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
             <span className="price">Total price: {item.price}$</span>
           </div>
       );

@@ -1,4 +1,5 @@
 import React from 'react';
+import {monthNames, shortWeekNames, shortMonthNames} from '../../utils/tools';
 
 class Calendar extends React.Component {
 
@@ -16,8 +17,6 @@ class Calendar extends React.Component {
     right_month: {month: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getMonth()), year: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getFullYear())}
   };
 
-  month_list = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
   move_right = () => {
     this.setState({left_month: this.state.right_month, right_month: {month: new Date(this.state.right_month.year, this.state.right_month.month+1).getMonth(), year: new Date(this.state.right_month.year, this.state.right_month.month+1).getFullYear()}});
   }
@@ -27,8 +26,6 @@ class Calendar extends React.Component {
   }
 
   choose_date = (date) => {
-    var week_list_shorted = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    var month_list_shorted = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
     function to_string(given_date){
       var temp_month = given_date.month;
@@ -46,12 +43,12 @@ class Calendar extends React.Component {
 
     if(this.state.departure_value !== undefined && date !== undefined){
       if((new Date(date.year, date.month, date.day)).getTime() < (new Date(this.state.departure_value.year, this.state.departure_value.month, this.state.departure_value.day)).getTime()){
-        this.setState({calendar_name: "to when", departureInput: to_string(date), departure_string: (week_list_shorted[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + month_list_shorted[date.month]), departure_value: date});
+        this.setState({calendar_name: "to when", departureInput: to_string(date), departure_string: (shortWeekNames[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + shortMonthNames[date.month]), departure_value: date});
       }else{
-        this.setState({return_value: date, returnInput: to_string(date), return_string: (week_list_shorted[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + month_list_shorted[date.month]), show: false});
+        this.setState({return_value: date, returnInput: to_string(date), return_string: (shortWeekNames[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + shortMonthNames[date.month]), show: false});
       }
     }else if(date !== undefined){
-      this.setState({calendar_name: "to when", departureInput: to_string(date), departure_string: (week_list_shorted[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + month_list_shorted[date.month]), departure_value: date});
+      this.setState({calendar_name: "to when", departureInput: to_string(date), departure_string: (shortWeekNames[(new Date(date.year, date.month, date.day)).getDay()] + ", " + date.day + "-" + shortMonthNames[date.month]), departure_value: date});
     }else{
       this.setState({calendar_name: "from when", departure_value: date});
     }
@@ -163,8 +160,8 @@ class Calendar extends React.Component {
           <div className="calendar_name">your vacation date</div>
           <div className="left" onClick={() => {this.move_left()}} />
           <div className="monthDescription">
-            <p className="leftSide">{this.month_list[this.state.left_month.month]+" "+this.state.left_month.year}</p>
-            <p className="rightSide">{this.month_list[this.state.right_month.month]+" "+this.state.right_month.year}</p>
+            <p className="leftSide">{monthNames[this.state.left_month.month]+" "+this.state.left_month.year}</p>
+            <p className="rightSide">{monthNames[this.state.right_month.month]+" "+this.state.right_month.year}</p>
           </div>
           <div className="right" onClick={() => {this.move_right()}} />
         </div>

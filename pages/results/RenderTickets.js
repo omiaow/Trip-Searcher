@@ -1,4 +1,5 @@
 import React from 'react';
+import {shortMonthNames} from '../utils/tools';
 
 class Tickets extends React.Component {
 
@@ -24,7 +25,6 @@ class Tickets extends React.Component {
 
   render(){
 
-    let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     let tickets = [];
 
     this.props.tickets.forEach((item, i) => {
@@ -43,7 +43,7 @@ class Tickets extends React.Component {
             <div className="description">to:</div>
               <div className="data_words">{ item.destination.city } ({ item.destination.iata })</div>
             <div className="description">date:</div>
-              <div className="data_words">{ date.getDate() } { month[date.getMonth()] }, { date.getFullYear() }</div>
+              <div className="data_words">{ date.getDate() } { shortMonthNames[date.getMonth()] }, { date.getFullYear() }</div>
             <div className="description">direct:</div>
               <div className="data_words">{ (item.direct) ? ("Yes") : ("No") }</div>
             <div className="description">price:</div>
