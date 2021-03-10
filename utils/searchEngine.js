@@ -87,7 +87,7 @@ export default function searchEngine(origin, data, filter){
   if(origin != undefined && data != undefined && filter != undefined){
     let directOnly = true;
 
-    let cities = filter.filter( (item) => item.selected );
+    let cities = filter.filter( (item) => item.selected && item.nights != 0 );
 
     let dateLong = 0;
     cities.forEach( (item) => dateLong += item.nights );

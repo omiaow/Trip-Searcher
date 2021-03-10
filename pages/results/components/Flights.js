@@ -1,8 +1,8 @@
 import React from 'react';
-import RenderTickets from './RenderTickets';
-import {weekNames, monthNames} from '../utils/tools';
+import Tickets from './Tickets';
+import {weekNames, monthNames} from '../../../utils/tools';
 
-class Tickets extends React.Component {
+class Flights extends React.Component {
 
   state = {
     daysWidth: 220,
@@ -174,7 +174,7 @@ class Tickets extends React.Component {
       <>
       <div className="ticket_borders">
         {(this.state.tickets.length > 0) ?
-           ( <RenderTickets width={window.innerWidth*(96/100)} tickets={this.state.tickets} initialLocation={this.state.initialLocation} total={this.state.total} removeTicket={this.removeTicket} /> ) :
+           ( <Tickets width={window.innerWidth*(96/100)} tickets={this.state.tickets} initialLocation={this.state.initialLocation} total={this.state.total} removeTicket={this.removeTicket} /> ) :
            ("")}
       </div>
 
@@ -188,4 +188,4 @@ class Tickets extends React.Component {
 
 }
 
-export default Tickets;
+export default Flights;

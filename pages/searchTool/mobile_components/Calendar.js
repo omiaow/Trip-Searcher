@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {monthNames, shortMonthNames} from '../../utils/tools';
+import {monthNames, shortMonthNames} from '../../../utils/tools';
 
 class Calendar extends React.Component {
 
@@ -23,9 +23,9 @@ class Calendar extends React.Component {
     }else if(this.state.arrival === undefined && date > this.state.departure){
       this.setState({arrival: date, placeholderTo: placeholder, valueTo: value});
     }else if(date.getDate() === this.state.departure.getDate() && date.getMonth() === this.state.departure.getMonth() && date.getFullYear() === this.state.departure.getFullYear()){
-      this.setState({departure: undefined, arrival: undefined, placeholderFrom: "From where?", placeholderTo: "To where?", valueFrom: "", valueTo: ""});
+      this.setState({departure: undefined, arrival: undefined, placeholderFrom: "From when?", placeholderTo: "To when?", valueFrom: "", valueTo: ""});
     }else if(this.state.arrival !== undefined && date.getDate() === this.state.arrival.getDate() && date.getMonth() === this.state.arrival.getMonth() && date.getFullYear() === this.state.arrival.getFullYear()){
-      this.setState({arrival: undefined, placeholderTo: "To where?", valueTo: ""});
+      this.setState({arrival: undefined, placeholderTo: "To when?", valueTo: ""});
     }else if(date > this.state.departure){
       this.setState({arrival: date, placeholderTo: placeholder, valueTo: value});
     }else{

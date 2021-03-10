@@ -1,6 +1,6 @@
 import React from 'react';
-import Tickets from './Tickets';
-import Trips from './Trips';
+import Flights from './components/Flights';
+import Trips from './components/Trips';
 import { Switch, Route } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 
@@ -48,7 +48,7 @@ class Result extends React.Component {
         </div>
         <Switch>
           <Route exact path="/search/tickets">
-            <Tickets data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>
+            <Flights data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>
           </Route>
           <Route exact path="/search/trips">
             <Trips data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>

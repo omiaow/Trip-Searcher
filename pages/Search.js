@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchTool from './searchTool/SearchTool';
 import Results from './results/Results';
-import flightsCall from './utils/flightsCall';
+import flightsCall from '../utils/flightsCall';
 import {withRouter} from 'react-router-dom';
 
 class Search extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import CityList from '../../utils/airports.json';
+import CityList from '../../../utils/airports.json';
 
 class AutocompleteFrom extends React.Component {
 

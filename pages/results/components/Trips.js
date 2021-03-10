@@ -1,8 +1,8 @@
 import React from 'react';
-import RenderTickets from './RenderTickets';
+import Tickets from './Tickets';
 import { Switch, Route } from 'react-router-dom';
-import { createFilterState, sortPrices, monthNames } from '../utils/tools';
-import searchEngine from '../utils/searchEngine';
+import { createFilterState, sortPrices, monthNames } from '../../../utils/tools';
+import searchEngine from '../../../utils/searchEngine';
 
 class Result extends React.Component {
 
@@ -24,7 +24,7 @@ class Result extends React.Component {
             <input type="checkbox" checked={filter[i].selected}
             onChange={() => {
                 filter[i].selected = !filter[i].selected;
-                this.setState({filter: filter});
+                this.setState({filter: filter, selectedTicket: undefined});
             }}/>
             <span className="checkmark"></span>
           </label>
@@ -37,22 +37,22 @@ class Result extends React.Component {
             onChange={(e) => {
               if(e.target.value !== '' && e.target.value > 0){
                 filter[i].nights = parseInt(e.target.value);
-                this.setState({filter: filter, lastChosen: e.target.value});
+                this.setState({filter: filter, lastChosen: e.target.value, selectedTicket: undefined});
               }else if(e.target.value === ''){
                 filter[i].nights = e.target.value;
-                this.setState({filter: filter});
+                this.setState({filter: filter, selectedTicket: undefined});
               }
             }}
 
             onFocus={() => {
               let lastChosen = filter[i].nights;
               filter[i].nights = '';
-              this.setState({filter: filter, lastChosen: lastChosen});
+              this.setState({filter: filter, lastChosen: lastChosen, selectedTicket: undefined});
             }}
 
             onBlur={() => {
               filter[i].nights = parseInt(this.state.lastChosen);
-              this.setState({filter: filter});
+              this.setState({filter: filter, selectedTicket: undefined});
             }}
 
             />
@@ -109,7 +109,7 @@ class Result extends React.Component {
       if(i == this.state.selectedTicket){
         tripList.push(
           <div className="ticket_details" key={'T'}>
-            <RenderTickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
+            <Tickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
           </div>
         );
       }

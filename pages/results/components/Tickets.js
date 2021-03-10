@@ -1,5 +1,5 @@
 import React from 'react';
-import {shortMonthNames} from '../utils/tools';
+import {shortMonthNames} from '../../../utils/tools';
 
 class Tickets extends React.Component {
 

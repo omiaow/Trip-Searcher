@@ -1,5 +1,5 @@
 import React from 'react';
-import CityList from '../../utils/airports.json';
+import CityList from '../../../utils/airports.json';
 
 class AutocompleteTo extends React.Component {
 
@@ -96,6 +96,7 @@ class AutocompleteTo extends React.Component {
     return(
       <div className="to">
         <h4>to</h4>
+        <p>choose up to 5 cities</p>
         <div className="autocomplete">
           <div className="toTag">
             {this.showTags()}

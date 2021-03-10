@@ -1,11 +1,11 @@
 import React from 'react';
-import {monthNames, shortWeekNames, shortMonthNames} from '../../utils/tools';
+import {monthNames, shortWeekNames, shortMonthNames} from '../../../utils/tools';
 
 class Calendar extends React.Component {
 
   state = {
-    departure_string: "From when",
-    return_string: "To when",
+    departure_string: "From when?",
+    return_string: "To when?",
     departureInput: "",
     returnInput: "",
     departure_value: undefined,
@@ -207,7 +207,7 @@ class Calendar extends React.Component {
       <div className="dates">
         <h4>choose dates</h4>
           <div id="inputDate"
-               onClick={(e) => {this.setState({show: !this.state.show, departure_value: undefined, return_value: undefined, departure_string: "From when", return_string: "To when", departureInput: "", returnInput: ""});}}
+               onClick={(e) => {this.setState({show: !this.state.show, departure_value: undefined, return_value: undefined, departure_string: "From when?", return_string: "To when?", departureInput: "", returnInput: ""});}}
                onBlur={() => this.setState({focus: false})}
           >
           {this.state.departure_string} - {this.state.return_string}

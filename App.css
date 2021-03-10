@@ -528,7 +528,7 @@ footer p{
   margin: 0px;
   width: 100%;
   font-variant: small-caps;
-  color: #fff;
+  color: #ffffff;
 }
 
 .desktop_search .from .autocomplete{
@@ -594,6 +594,14 @@ footer p{
   width: 54%;
   float: left;
   min-height: 60px;
+}
+
+.desktop_search .to h4{
+  float: left;
+  margin: 0px;
+  width: 50px;
+  font-variant: small-caps;
+  color: #ffffff;
 }
 
 .desktop_search .to p{
