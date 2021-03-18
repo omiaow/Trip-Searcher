@@ -1581,15 +1581,19 @@ input::-webkit-inner-spin-button {
   overflow: auto;
 }
 
+.trips .list{
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .trips .trip{
   padding: 10px 0;
-  width: 96%;
+  width: 100%;
   float: left;
   min-height: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 2%;
-  margin-right: 2%;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -1620,7 +1624,32 @@ input::-webkit-inner-spin-button {
 }
 
 .trips .ticket_details{
+  width: 100%;
+}
+
+.trips .special_offer{
+  border-top: 1px solid #6D9780;
+  border-bottom: 1px solid #6D9780;
+  min-height: 15px;
+  cursor: pointer;
   width: 96%;
   margin-left: 2%;
   margin-right: 2%;
+  border-radius: 7px;
+  float: left;
+  margin-bottom: 5px;
+}
+
+.trips .special_offer .name{
+  width: 100%;
+  color: #6D9780;
+  padding: 5px 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+}
+
+.trips .special_offer .name:hover{
+  text-decoration: underline;
 }

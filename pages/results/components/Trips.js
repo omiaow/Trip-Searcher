@@ -1,7 +1,7 @@
 import React from 'react';
 import Tickets from './Tickets';
 import { Switch, Route } from 'react-router-dom';
-import { createFilterState, sortPrices, monthNames } from '../../../utils/tools';
+import { createFilterState, sortPrices, monthNames, specialOffer } from '../../../utils/tools';
 import searchEngine from '../../../utils/searchEngine';
 
 class Result extends React.Component {
@@ -71,9 +71,12 @@ class Result extends React.Component {
 
   }
 
-  renderTrips(trips){
+  renderTrips(){
 
-    function names(tickets){
+    let trips = searchEngine(this.state.myLocation, this.props.data, this.state.filter);
+    let specials = specialOffer(this.state.myLocation, this.props.data, this.state.filter);
+
+    function tripName(tickets){
       let name = "";
 
       for(let i=0; i<tickets.length-1; i++)
@@ -83,6 +86,7 @@ class Result extends React.Component {
     }
 
     let tripList = [];
+    let specialList = [];
 
     trips = sortPrices(trips);
 
@@ -100,7 +104,7 @@ class Result extends React.Component {
                    this.setState({selectedTicket: undefined});
                  }
                }}>
-            <span>Trip to {names(item.tickets)}</span>
+            <span>Trip to {tripName(item.tickets)}</span>
             <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
             <span className="price">Total price: {item.price}$</span>
           </div>
@@ -116,9 +120,48 @@ class Result extends React.Component {
 
     });
 
+    specials.forEach( (item, i) => {
+      let fromDate = new Date(item.tickets[0].date);
+      let toDate = new Date(item.tickets[item.tickets.length-1].date);
+
+      specialList.push(
+          <div className="trip" key={i}
+               style={(i == this.state.selectedSpecialTicket) ? ({boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29)'}) : (null)}
+               onClick={() => {
+                 if(i != this.state.selectedSpecialTicket){
+                   this.setState({selectedSpecialTicket: i});
+                 }else{
+                   this.setState({selectedSpecialTicket: undefined});
+                 }
+               }}>
+            <span>Trip to {tripName(item.tickets)}</span>
+            <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
+            <span className="price">Total price: {item.price}$</span>
+          </div>
+      );
+
+      if(i == this.state.selectedTicket){
+        specialList.push(
+          <div className="ticket_details" key={'T'}>
+            <Tickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
+          </div>
+        );
+      }
+
+    });
+    console.log(specials);
+
     return (
       <div className="trips" style={{width: ((window.innerWidth > 999) ? ('71%') : ('100%'))}}>
-        {tripList}
+        <div className="special_offer">
+          <div className="name"
+               onClick={() => this.setState({specialTickets: ((this.state.specialTickets === undefined) ? (true) : (!this.state.specialTickets))})}
+          >Special offer from {}$</div>
+          {(this.state.specialTickets) ? specialList : ""}
+        </div>
+        <div className="list">
+          {(this.state.specialTickets) ? "" : tripList}
+        </div>
       </div>
     );
 
@@ -130,7 +173,7 @@ class Result extends React.Component {
       return(
         <>
           { this.filterPanel(this.state.filter) }
-          { this.renderTrips(searchEngine(this.state.myLocation, this.props.data, this.state.filter)) }
+          { this.renderTrips() }
         </>
       );
     }else return <></>;

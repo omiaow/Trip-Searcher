@@ -1,4 +1,5 @@
-import airports from './airports.json'
+import airports from './airports.json';
+import searchEngine from './searchEngine0';
 
 export function createFilterState(data, location){
   let state = {
@@ -51,3 +52,7 @@ export const monthNames = ["January", "February", "March", "April", "May", "June
 export const shortWeekNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+export function specialOffer(location, data, filter){
+  return searchEngine(location, data, filter);
+}

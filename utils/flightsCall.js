@@ -1,6 +1,8 @@
 import AirportsList from './airports.json';
 import { sortPrices } from './tools.js';
 
+import { headers } from './api-key.js';
+
 let loading;
 
 export default async function SearchCall(data, update){
@@ -46,7 +48,10 @@ async function searchFlights(currentDate, update, locations, total){
         for(let l=0; l<locations[i].airports.length; l++){
           for(let k=0; k<locations[j].airports.length; k++){
 
-            const result = await fetch(/* API Data was hidden */)
+            const result = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${"HU"}/${"USD"}/en-US/${locations[i].airports[l]}-sky/${locations[j].airports[k]}-sky/${currentDate.toISOString().split('T')[0]}`, {
+            	"method": "GET",
+            	"headers": headers
+            })
             .catch(err => {
             	console.log(err);
             });
@@ -105,5 +110,7 @@ async function searchFlights(currentDate, update, locations, total){
     }
 
     return flightList;
+
   }
+
 }
