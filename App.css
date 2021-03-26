@@ -1628,8 +1628,8 @@ input::-webkit-inner-spin-button {
 }
 
 .trips .special_offer{
-  border-top: 1px solid #6D9780;
-  border-bottom: 1px solid #6D9780;
+  border-top: 1px solid #7EC9A1;
+  border-bottom: 1px solid #7EC9A1;
   min-height: 15px;
   cursor: pointer;
   width: 96%;
@@ -1642,12 +1642,13 @@ input::-webkit-inner-spin-button {
 
 .trips .special_offer .name{
   width: 100%;
-  color: #6D9780;
+  color: #7EC9A1;
   padding: 5px 0;
   margin: 0;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   font-size: 17px;
+  font-weight: bold;
 }
 
 .trips .special_offer .name:hover{

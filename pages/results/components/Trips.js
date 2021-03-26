@@ -24,7 +24,7 @@ class Result extends React.Component {
             <input type="checkbox" checked={filter[i].selected}
             onChange={() => {
                 filter[i].selected = !filter[i].selected;
-                this.setState({filter: filter, selectedTicket: undefined});
+                this.setState({filter: filter, selectedTicket: undefined, specialTickets: false});
             }}/>
             <span className="checkmark"></span>
           </label>
@@ -37,22 +37,22 @@ class Result extends React.Component {
             onChange={(e) => {
               if(e.target.value !== '' && e.target.value > 0){
                 filter[i].nights = parseInt(e.target.value);
-                this.setState({filter: filter, lastChosen: e.target.value, selectedTicket: undefined});
+                this.setState({filter: filter, lastChosen: e.target.value, selectedTicket: undefined, specialTickets: false});
               }else if(e.target.value === ''){
                 filter[i].nights = e.target.value;
-                this.setState({filter: filter, selectedTicket: undefined});
+                this.setState({filter: filter, selectedTicket: undefined, specialTickets: false});
               }
             }}
 
             onFocus={() => {
               let lastChosen = filter[i].nights;
               filter[i].nights = '';
-              this.setState({filter: filter, lastChosen: lastChosen, selectedTicket: undefined});
+              this.setState({filter: filter, lastChosen: lastChosen, selectedTicket: undefined, specialTickets: false});
             }}
 
             onBlur={() => {
               filter[i].nights = parseInt(this.state.lastChosen);
-              this.setState({filter: filter, selectedTicket: undefined});
+              this.setState({filter: filter, selectedTicket: undefined, specialTickets: false});
             }}
 
             />
@@ -74,7 +74,40 @@ class Result extends React.Component {
   renderTrips(){
 
     let trips = searchEngine(this.state.myLocation, this.props.data, this.state.filter);
-    let specials = specialOffer(this.state.myLocation, this.props.data, this.state.filter);
+    trips = sortPrices(trips);
+
+    let specials = ((trips.length > 0) ?
+    specialOffer(this.state.myLocation, this.props.data, this.state.filter, trips[0].price) :
+    specialOffer(this.state.myLocation, this.props.data, this.state.filter, undefined));
+    specials = sortPrices(specials);
+
+    let tripList = [];
+    let specialList = [];
+
+    trips.forEach( (item, i) => this.createTripList(item, i, tripList));
+
+    specials.forEach( (item, i) => this.createTripList(item, i, specialList));
+
+    return (
+      <div className="trips" style={{width: ((window.innerWidth > 999) ? ('71%') : ('100%'))}}>
+        {(specials.length > 0) ?
+          (<div className="special_offer" style={{backgroundColor: (!this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}>
+            <div className="name"
+                 style={{color: (this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}
+                 onClick={() => this.setState({specialTickets: ((this.state.specialTickets === undefined) ? (true) : (!this.state.specialTickets)), selectedTicket: undefined})}
+            >Special offer from {specials[0].price}$</div>
+            {(this.state.specialTickets) ? specialList : ""}
+          </div>) :
+          ""}
+        <div className="list">
+          {(this.state.specialTickets) ? "" : tripList}
+        </div>
+      </div>
+    );
+
+  }
+
+  createTripList(item, i, list){
 
     function tripName(tickets){
       let name = "";
@@ -85,86 +118,32 @@ class Result extends React.Component {
       return name.slice(0, name.length-2);
     }
 
-    let tripList = [];
-    let specialList = [];
+    let fromDate = new Date(item.tickets[0].date);
+    let toDate = new Date(item.tickets[item.tickets.length-1].date);
 
-    trips = sortPrices(trips);
-
-    trips.forEach( (item, i) => {
-      let fromDate = new Date(item.tickets[0].date);
-      let toDate = new Date(item.tickets[item.tickets.length-1].date);
-
-      tripList.push(
-          <div className="trip" key={i}
-               style={(i == this.state.selectedTicket) ? ({boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29)'}) : (null)}
-               onClick={() => {
-                 if(i != this.state.selectedTicket){
-                   this.setState({selectedTicket: i});
-                 }else{
-                   this.setState({selectedTicket: undefined});
-                 }
-               }}>
-            <span>Trip to {tripName(item.tickets)}</span>
-            <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
-            <span className="price">Total price: {item.price}$</span>
-          </div>
-      );
-
-      if(i == this.state.selectedTicket){
-        tripList.push(
-          <div className="ticket_details" key={'T'}>
-            <Tickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
-          </div>
-        );
-      }
-
-    });
-
-    specials.forEach( (item, i) => {
-      let fromDate = new Date(item.tickets[0].date);
-      let toDate = new Date(item.tickets[item.tickets.length-1].date);
-
-      specialList.push(
-          <div className="trip" key={i}
-               style={(i == this.state.selectedSpecialTicket) ? ({boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29)'}) : (null)}
-               onClick={() => {
-                 if(i != this.state.selectedSpecialTicket){
-                   this.setState({selectedSpecialTicket: i});
-                 }else{
-                   this.setState({selectedSpecialTicket: undefined});
-                 }
-               }}>
-            <span>Trip to {tripName(item.tickets)}</span>
-            <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
-            <span className="price">Total price: {item.price}$</span>
-          </div>
-      );
-
-      if(i == this.state.selectedTicket){
-        specialList.push(
-          <div className="ticket_details" key={'T'}>
-            <Tickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
-          </div>
-        );
-      }
-
-    });
-    console.log(specials);
-
-    return (
-      <div className="trips" style={{width: ((window.innerWidth > 999) ? ('71%') : ('100%'))}}>
-        <div className="special_offer">
-          <div className="name"
-               onClick={() => this.setState({specialTickets: ((this.state.specialTickets === undefined) ? (true) : (!this.state.specialTickets))})}
-          >Special offer from {}$</div>
-          {(this.state.specialTickets) ? specialList : ""}
+    list.push(
+        <div className="trip" key={i}
+             style={(i == this.state.selectedTicket) ? ({boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29)'}) : (null)}
+             onClick={() => {
+               if(i != this.state.selectedTicket){
+                 this.setState({selectedTicket: i});
+               }else{
+                 this.setState({selectedTicket: undefined});
+               }
+             }}>
+          <span>Trip to {tripName(item.tickets)}</span>
+          <p>{fromDate.getDate()} {monthNames[fromDate.getMonth()]}, {fromDate.getFullYear()} - {toDate.getDate()} {monthNames[toDate.getMonth()]}, {toDate.getFullYear()}</p>
+          <span className="price">Total price: {item.price}$</span>
         </div>
-        <div className="list">
-          {(this.state.specialTickets) ? "" : tripList}
-        </div>
-      </div>
     );
 
+    if(i == this.state.selectedTicket){
+      list.push(
+        <div className="ticket_details" key={'T'}>
+          <Tickets tickets={item.tickets} initialLocation={this.state.myLocation} width={(window.innerWidth*(71/100))*(96/100)}/>
+        </div>
+      );
+    }
   }
 
   render(){
