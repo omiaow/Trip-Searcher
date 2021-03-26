@@ -54,17 +54,18 @@ export const shortWeekNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 export const shortMonthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
 export function specialOffer(location, data, filter, minPrice){
-
   let specials = [];
 
   for(let i=0; i<filter.length; i++){
-    const newFilter = JSON.parse(JSON.stringify(filter));
-    newFilter[i].nights += 1;
-    const trips = searchEngine(location, data, newFilter);
-    trips.forEach( trip => {
-      if(minPrice !== undefined && trip.price < minPrice) specials.push(trip);
-      else if(minPrice === undefined) specials.push(trip);
-    });
+    if(filter[i].selected){
+      const newFilter = JSON.parse(JSON.stringify(filter));
+      newFilter[i].nights += 1;
+      const trips = searchEngine(location, data, newFilter);
+      trips.forEach( trip => {
+        if(minPrice !== undefined && trip.price < minPrice) specials.push(trip);
+        else if(minPrice === undefined) specials.push(trip);
+      });
+    }
   }
 
   return specials;

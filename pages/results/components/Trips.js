@@ -90,7 +90,8 @@ class Result extends React.Component {
 
     return (
       <div className="trips" style={{width: ((window.innerWidth > 999) ? ('71%') : ('100%'))}}>
-        {(specials.length > 0) ?
+        {
+          (specials.length > 0) ?
           (<div className="special_offer" style={{backgroundColor: (!this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}>
             <div className="name"
                  style={{color: (this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}
@@ -98,7 +99,8 @@ class Result extends React.Component {
             >Special offer from {specials[0].price}$</div>
             {(this.state.specialTickets) ? specialList : ""}
           </div>) :
-          ""}
+          ""
+        }
         <div className="list">
           {(this.state.specialTickets) ? "" : tripList}
         </div>
