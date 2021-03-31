@@ -1623,13 +1623,23 @@ input::-webkit-inner-spin-button {
   letter-spacing: 0.5px;
 }
 
+.trips .message{
+  width: 100%;
+  float: left;
+  font-weight: bold;
+  font-size: 1.6em;
+  color: grey;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
 .trips .ticket_details{
   width: 100%;
 }
 
 .trips .special_offer{
-  border-top: 1px solid #7EC9A1;
-  border-bottom: 1px solid #7EC9A1;
+  border-top: 2px solid #7EC9A1;
+  border-bottom: 2px solid #7EC9A1;
   min-height: 15px;
   cursor: pointer;
   width: 96%;

@@ -91,18 +91,20 @@ class Result extends React.Component {
     return (
       <div className="trips" style={{width: ((window.innerWidth > 999) ? ('71%') : ('100%'))}}>
         {
-          (specials.length > 0) ?
-          (<div className="special_offer" style={{backgroundColor: (!this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}>
+          (specials.length <= 0) ? "" :
+          <div className="special_offer" style={{backgroundColor: (!this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}>
             <div className="name"
-                 style={{color: (this.state.specialTickets) ? "#7EC9A1" : "#FFFFFF"}}
+                 style={{color: (this.state.specialTickets ? "#7EC9A1" : "#FFFFFF")}}
                  onClick={() => this.setState({specialTickets: ((this.state.specialTickets === undefined) ? (true) : (!this.state.specialTickets)), selectedTicket: undefined})}
             >Special offer from {specials[0].price}$</div>
             {(this.state.specialTickets) ? specialList : ""}
-          </div>) :
-          ""
+          </div>
         }
         <div className="list">
-          {(this.state.specialTickets) ? "" : tripList}
+          {
+            (this.state.specialTickets) ? "" :
+            ((tripList.length === 0) ? <h2 className="message">No, flights for selected options</h2> : tripList)
+          }
         </div>
       </div>
     );
