@@ -1319,7 +1319,6 @@ footer p{
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-bottom: 10px;
 }
 
 .tickets .ticket_screen::-webkit-scrollbar {
@@ -1427,6 +1426,29 @@ footer p{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.tickets .share{
+  float: left;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #34495E;
+}
+
+.tickets .share .button{
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.tickets .share span{
+  float: left;
+  margin: 0;
+  color: #34495E;
+  margin-right: 10px;
+  font-size: 25px;
 }
 
 /************************************************************************************/
@@ -1652,7 +1674,6 @@ input::-webkit-inner-spin-button {
 
 .trips .special_offer .name{
   width: 100%;
-  color: #7EC9A1;
   padding: 5px 0;
   margin: 0;
   text-align: center;

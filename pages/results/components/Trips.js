@@ -77,8 +77,8 @@ class Result extends React.Component {
     trips = sortPrices(trips);
 
     let specials = ((trips.length > 0) ?
-    specialOffer(this.state.myLocation, this.props.data, this.state.filter, trips[0].price) :
-    specialOffer(this.state.myLocation, this.props.data, this.state.filter, undefined));
+      specialOffer(this.state.myLocation, this.props.data, this.state.filter, trips[0].price) :
+      specialOffer(this.state.myLocation, this.props.data, this.state.filter, undefined));
     specials = sortPrices(specials);
 
     let tripList = [];
@@ -100,12 +100,12 @@ class Result extends React.Component {
             {(this.state.specialTickets) ? specialList : ""}
           </div>
         }
-        <div className="list">
-          {
-            (this.state.specialTickets) ? "" :
-            ((tripList.length === 0) ? <h2 className="message">No, flights for selected options</h2> : tripList)
-          }
-        </div>
+        {
+          (this.state.specialTickets) ? "" :
+            <div className="list">
+              {((tripList.length === 0) ? <h2 className="message">No, flights for selected options</h2> : tripList)}
+            </div>
+        }
       </div>
     );
 

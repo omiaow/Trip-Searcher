@@ -1,5 +1,7 @@
 import React from 'react';
 import {shortMonthNames} from '../../../utils/tools';
+import { FacebookMessengerShareButton, WhatsappShareButton, TelegramShareButton } from 'react-share';
+import { FacebookMessengerIcon, WhatsappIcon, TelegramIcon } from 'react-share';
 
 class Tickets extends React.Component {
 
@@ -76,6 +78,25 @@ class Tickets extends React.Component {
         {(window.innerWidth > 999 && (this.props.width*90/100) < (this.props.tickets.length*this.state.ticketWidth)) ?
            (<div className="right_button" onClick={() => this.moveRight()}/>) :
            ("")}
+
+        <div className="share">
+          <span>Share:</span>
+          <div className="button">
+            <FacebookMessengerShareButton url="google.com">
+              <FacebookMessengerIcon size={30} round={true}/>
+            </FacebookMessengerShareButton>
+          </div>
+          <div className="button">
+            <WhatsappShareButton url="google.com">
+              <WhatsappIcon size={30} round={true}/>
+            </WhatsappShareButton>
+          </div>
+          <div className="button">
+            <TelegramShareButton url="google.com">
+              <TelegramIcon size={30} round={true}/>
+            </TelegramShareButton>
+          </div>
+        </div>
 
       </div>
     );
