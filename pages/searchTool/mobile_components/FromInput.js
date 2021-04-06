@@ -8,8 +8,32 @@ class AutocompleteFrom extends React.Component {
       value: "",
       autocompleteLength: 7,
       placeholder: "",
-      id: ""
+      id: "",
+      url: ""
     };
+  }
+
+  componentDidMount(){
+    this.changeData();
+  }
+
+  componentDidUpdate(){
+    this.changeData();
+  }
+
+  changeData(){
+    if(this.state.url != window.location.search){
+      const queryString = require('query-string');
+      const parsed = queryString.parse(window.location.search);
+      let id = parsed.Origin.split(' ')[0];
+      let i=0;
+      while(i<CityList.length && CityList[i].id != id) i++;
+      let city = "";
+      if(i<CityList.length){
+        city = CityList[i].loc;
+      }
+      this.setState({url: window.location.search, placeholder: city, value: "", id: id});
+    }
   }
 
   choose = (city, id) => {

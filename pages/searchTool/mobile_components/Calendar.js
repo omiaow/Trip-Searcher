@@ -10,7 +10,34 @@ class Calendar extends React.Component {
     placeholderFrom: "From when?",
     placeholderTo: "To when?",
     departure: undefined,
-    arrival: undefined
+    arrival: undefined,
+    url: ""
+  }
+
+  componentDidMount(){
+    this.changeData();
+  }
+
+  componentDidUpdate(){
+    this.changeData();
+  }
+
+  changeData(){
+    if(this.state.url != window.location.search){
+      const queryString = require('query-string');
+      const parsed = queryString.parse(window.location.search);
+      const fromDate = new Date(parsed.fromDate);
+      const toDate = new Date(parsed.toDate);
+      this.setState({
+        url: window.location.search,
+        placeholderFrom: `${fromDate.getDate()} ${shortMonthNames[fromDate.getMonth()]}, ${fromDate.getFullYear()}`,
+        placeholderTo: `${toDate.getDate()} ${shortMonthNames[toDate.getMonth()]}, ${toDate.getFullYear()}`,
+        valueFrom: parsed.fromDate,
+        valueTo: parsed.toDate,
+        departure: new Date(parsed.fromDate),
+        arrival: new Date(parsed.toDate),
+      });
+    }
   }
 
   chooseDate = (date) => {

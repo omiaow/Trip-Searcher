@@ -84,7 +84,10 @@ class Tickets extends React.Component {
            (<div className="right_button" onClick={() => this.moveRight()}/>) :
            ("")}
 
-        <div className="share">
+        <div className="share"
+             style={(((this.props.width*90/100) >= (this.props.tickets.length*this.state.ticketWidth)) ?
+                      ((window.innerWidth > 999) ? {width: 'calc(100% - 110px)', marginLeft: '55px', marginRight: '55px'} : {width: '100%'}) :
+                      ((window.innerWidth > 999) ? {width: 'calc(100% - 110px)'} : {width: '100%'}))}>
           <span>Share:</span>
           <div className="button">
             <WhatsappShareButton url={shareURL}>

@@ -10,7 +10,31 @@ class AutocompleteFrom extends React.Component {
     focuse: false,
     options: [],
     optionLimit: 8,
-    active: -1
+    active: -1,
+    url: ""
+  }
+
+  componentDidMount(){
+    this.changeData();
+  }
+
+  componentDidUpdate(){
+    this.changeData();
+  }
+
+  changeData(){
+    if(this.state.url != window.location.search){
+      const queryString = require('query-string');
+      const parsed = queryString.parse(window.location.search);
+      let id = parsed.Origin.split(' ')[0];
+      let i=0;
+      while(i<CityList.length && CityList[i].id != id) i++;
+      let city = [];
+      if(i<CityList.length){
+        city.push(CityList[i]);
+      }
+      this.setState({url: window.location.search, locs: city, value: "", options: []});
+    }
   }
 
   findOptions(value){
@@ -47,14 +71,19 @@ class AutocompleteFrom extends React.Component {
 
   showTags(){
     let tags = [];
-    for(let i=0; i<this.state.locs.length; i++) tags.push(<div key={i} className="tag"><span>{this.state.locs[i].loc.split(',')[0]}</span><div className="close" onClick={this.close.bind(null, this.state.locs[i].id)}>+</div></div>);
+    for(let i=0; i<this.state.locs.length; i++) tags.push(
+      <div key={i} className="tag">
+        <span>{this.state.locs[i].loc.split(',')[0]}</span>
+        <div className="close" onClick={this.close.bind(null, this.state.locs[i].id)}>+</div>
+      </div>
+    );
     return tags;
   }
 
   choose = (optionId) => {
     let check = true;
     this.state.locs.forEach( i => {
-      if(i.id == this.state.options[optionId].id) check = false;
+      if(this.state.options.length <= optionId || i.id == this.state.options[optionId].id) check = false;
     });
     if(check){
       this.state.locs.push(this.state.options[optionId]);

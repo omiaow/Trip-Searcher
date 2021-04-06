@@ -38,7 +38,7 @@ class Tickets extends React.Component {
           <div className="header">
             <a href={this.state.url} style={({backgroundColor: "#ffffff", color: "#34495E"})}>search other options</a>
           </div>
-          <div className="shared">
+          <div className="ticket_borders">
             <RenderTickets tickets={this.state.tickets} total={this.state.total} width={window.innerWidth*(96/100)} />
           </div>
         </div>

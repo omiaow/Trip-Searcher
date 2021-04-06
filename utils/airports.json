@@ -6435,7 +6435,7 @@
   "air": ["BZR"],
   "id": 1608
 }, {
-  "loc": "Paris, Île-de-France, France",
+  "loc": "Paris, France",
   "air": ["PARI"],
   "id": 1609
 }, {
@@ -7271,7 +7271,7 @@
   "air": ["CAG"],
   "id": 1817
 }, {
-  "loc": "Rome, Lazio, Italy",
+  "loc": "Rome, Italy",
   "air": ["ROME"],
   "id": 1818
 }, {
@@ -7303,7 +7303,7 @@
   "air": ["GOA"],
   "id": 1825
 }, {
-  "loc": "Milan, Lombardy, Italy",
+  "loc": "Milan, Italy",
   "air": ["MILA"],
   "id": 1826
 }, {
@@ -7499,7 +7499,7 @@
   "air": ["AXT"],
   "id": 1874
 }, {
-  "loc": "Sapporo, Hokkaido, Japan",
+  "loc": "Sapporo, Japan",
   "air": ["SPKA"],
   "id": 1875
 }, {
@@ -7535,7 +7535,7 @@
   "air": ["HNA"],
   "id": 1883
 }, {
-  "loc": "Tokyo, Honshu, Japan",
+  "loc": "Tokyo, Japan",
   "air": ["TYOA"],
   "id": 1884
 }, {
@@ -7547,7 +7547,7 @@
   "air": ["ISG"],
   "id": 1886
 }, {
-  "loc": "Osaka, Honshu, Japan",
+  "loc": "Osaka, Japan",
   "air": ["OSAA"],
   "id": 1887
 }, {
@@ -7823,7 +7823,7 @@
   "air": ["AKV"],
   "id": 1955
 }, {
-  "loc": "Vancouver, British Columbia, Canada",
+  "loc": "Vancouver, Canada",
   "air": ["YVRA"],
   "id": 1956
 }, {
@@ -7959,7 +7959,7 @@
   "air": ["YCC"],
   "id": 1989
 }, {
-  "loc": "Nanaimo, British Columbia, Canada",
+  "loc": "Nanaimo, Canada",
   "air": ["YCDA"],
   "id": 1990
 }, {
@@ -8207,7 +8207,7 @@
   "air": ["YMT"],
   "id": 2051
 }, {
-  "loc": "Montreal, Quebec, Canada",
+  "loc": "Montreal, Canada",
   "air": ["YMQA"],
   "id": 2052
 }, {
@@ -8435,7 +8435,7 @@
   "air": ["YTS"],
   "id": 2108
 }, {
-  "loc": "Toronto, Ontario, Canada",
+  "loc": "Toronto, Canada",
   "air": ["YTOA"],
   "id": 2109
 }, {
@@ -8487,7 +8487,7 @@
   "air": ["YWG"],
   "id": 2121
 }, {
-  "loc": "Victoria, British Columbia, Canada",
+  "loc": "Victoria, Canada",
   "air": ["YYJA"],
   "id": 2122
 }, {
@@ -11087,7 +11087,7 @@
   "air": ["BMY"],
   "id": 2771
 }, {
-  "loc": "Nouméa, New Caledonia",
+  "loc": "Noumea, New Caledonia",
   "air": ["NOUN"],
   "id": 2772
 }, {

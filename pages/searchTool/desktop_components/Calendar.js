@@ -14,8 +14,33 @@ class Calendar extends React.Component {
     show: false,
     calendar_name: "from when",
     left_month: {month: (new Date().getMonth()), year: (new Date().getFullYear())},
-    right_month: {month: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getMonth()), year: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getFullYear())}
-  };
+    right_month: {month: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getMonth()), year: (new Date(new Date().getFullYear(), new Date().getMonth()+1).getFullYear())},
+    url: ""
+  }
+
+  componentDidMount(){
+    this.changeData();
+  }
+
+  componentDidUpdate(){
+    this.changeData();
+  }
+
+  changeData(){
+    if(this.state.url != window.location.search){
+      const queryString = require('query-string');
+      const parsed = queryString.parse(window.location.search);
+      const fromDate = new Date(parsed.fromDate);
+      const toDate = new Date(parsed.toDate);
+      this.setState({
+        url: window.location.search,
+        departure_string: `${shortWeekNames[fromDate.getDay()]}, ${fromDate.getDate()}-${shortMonthNames[fromDate.getMonth()]}`,
+        return_string: `${shortWeekNames[toDate.getDay()]}, ${toDate.getDate()}-${shortMonthNames[toDate.getMonth()]}`,
+        departureInput: parsed.fromDate,
+        returnInput: parsed.toDate
+      });
+    }
+  }
 
   move_right = () => {
     this.setState({left_month: this.state.right_month, right_month: {month: new Date(this.state.right_month.year, this.state.right_month.month+1).getMonth(), year: new Date(this.state.right_month.year, this.state.right_month.month+1).getFullYear()}});
