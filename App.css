@@ -1035,6 +1035,26 @@ footer p{
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29);
 }
 
+.result .header a{
+  float: left;
+  min-width: 100px;
+  border-radius: 10px;
+  border: 1px solid #34495E;
+  cursor: pointer;
+  overflow: hidden;
+  font-variant: small-caps;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 2%;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.result .header a:hover{
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29);
+}
+
 .loading{
   width: 100%;
   height: 8px;
@@ -1684,4 +1704,10 @@ input::-webkit-inner-spin-button {
 
 .trips .special_offer .name:hover{
   text-decoration: underline;
+}
+
+.shared{
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
 }

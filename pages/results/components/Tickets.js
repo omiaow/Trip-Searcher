@@ -60,7 +60,7 @@ class Tickets extends React.Component {
 
     });
 
-    shareURL = shareURL.slice(0, shareURL.length-1);
+    shareURL += window.location.search.slice(1, window.location.search.length);
 
     return (
       <div className="tickets">

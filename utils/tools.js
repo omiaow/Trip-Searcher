@@ -70,3 +70,42 @@ export function specialOffer(location, data, filter, minPrice){
 
   return specials;
 }
+
+export function generateTicket(flight, locId){
+  let flightList = [];
+
+  flight.Quotes.forEach(item => {
+    let ticket = { price: item.MinPrice, direct: item.Direct};
+    ticket.airline = getAirline(flight.Carriers, item.OutboundLeg.CarrierIds);
+    ticket.origin = getLocation(flight.Places, item.OutboundLeg.OriginId);
+    ticket.destination = getLocation(flight.Places, item.OutboundLeg.DestinationId, locId);
+    let flightDate = item.OutboundLeg.DepartureDate.split('T')[0];
+    ticket.date = flightDate;
+    ticket.url = `https://www.skyscanner.hu/transport/flights/${ticket.origin.iata}/${ticket.destination.iata}/${flightDate.substring(2, 4) + flightDate.substring(5, 7) + flightDate.substring(8, 10)}/`;
+    flightList.push(ticket);
+  });
+
+  function getAirline(airlines, ids){
+    let result = [];
+    ids.forEach( i => {
+      airlines.forEach( j => {
+        if(j.CarrierId == i){
+          result.push(j.Name);
+        }
+      });
+    });
+    return result;
+  }
+
+  function getLocation(places, id, locId){
+    for(let i=0; i<places.length; i++){
+      if(places[i].PlaceId == id){
+        return {airportName: places[i].Name, iata: places[i].IataCode, country: places[i].CountryName, city: places[i].CityName, id: locId};
+      }
+    }
+    return undefined;
+  }
+
+  return flightList;
+
+}
