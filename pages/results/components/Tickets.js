@@ -28,10 +28,13 @@ class Tickets extends React.Component {
   render(){
 
     let tickets = [];
+    let shareURL = `${window.location.origin}/tickets?`;
 
     this.props.tickets.forEach((item, i) => {
 
       const date = new Date(item.date);
+
+      shareURL += `from=${item.origin.iata}&to=${item.destination.iata}&date=${date.toISOString().slice(0, 10)}&direct=${item.direct}&`;
 
       tickets.push(
         <div className="ticket" key={i}>
@@ -56,6 +59,8 @@ class Tickets extends React.Component {
       );
 
     });
+
+    shareURL = shareURL.slice(0, shareURL.length-1);
 
     return (
       <div className="tickets">
@@ -82,17 +87,17 @@ class Tickets extends React.Component {
         <div className="share">
           <span>Share:</span>
           <div className="button">
-            <FacebookMessengerShareButton url="google.com">
-              <FacebookMessengerIcon size={30} round={true}/>
-            </FacebookMessengerShareButton>
-          </div>
-          <div className="button">
-            <WhatsappShareButton url="google.com">
+            <WhatsappShareButton url={shareURL}>
               <WhatsappIcon size={30} round={true}/>
             </WhatsappShareButton>
           </div>
           <div className="button">
-            <TelegramShareButton url="google.com">
+            <FacebookMessengerShareButton url={shareURL}>
+              <FacebookMessengerIcon size={30} round={true}/>
+            </FacebookMessengerShareButton>
+          </div>
+          <div className="button">
+            <TelegramShareButton url={shareURL}>
               <TelegramIcon size={30} round={true}/>
             </TelegramShareButton>
           </div>

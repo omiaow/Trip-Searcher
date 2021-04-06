@@ -52,7 +52,7 @@ class SearchTool extends React.Component {
       }, 5000);
     }else{
       history.push({
-        pathname: '/search/tickets',
+        pathname: '/search',
         search: `?Origin=${origin}&Destinations=${destinations}&fromDate=${fromDate}&toDate=${toDate}`
       });
     }

@@ -13,10 +13,6 @@ class Result extends React.Component {
 
   componentDidUpdate(){
     if(this.state.query !== this.props.location.search && this.props.location.search.length > 0){
-      this.props.history.push({
-          pathname: '/search/tickets',
-          search: this.props.location.search
-      });
       this.setState({trip: false, query: this.props.location.search});
     }
   }
@@ -24,10 +20,8 @@ class Result extends React.Component {
   switchPage = (name) => {
     if(name === "tickets"){
       this.setState({trip: false});
-      this.props.history.push({pathname: `/search/${name}`, search: this.props.location.search});
     }else if(name === "trips" && !this.props.switchTrip){
       this.setState({trip: true});
-      this.props.history.push({pathname: `/search/${name}`, search: this.props.location.search});
     }
   }
 
@@ -46,14 +40,9 @@ class Result extends React.Component {
                               ({backgroundColor: "#ffffff", color: "#34495E"}))}
                   onClick={() => this.switchPage("trips")}>trips</button>
         </div>
-        <Switch>
-          <Route exact path="/search/tickets">
-            <Flights data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>
-          </Route>
-          <Route exact path="/search/trips">
-            <Trips data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>
-          </Route>
-        </Switch>
+        {(!this.state.trip) ?
+            <Flights data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/> :
+            <Trips data={this.props.data} myLocation={this.props.myLocation} fromDate={this.props.fromDate}/>}
       </div>
     );
   }
