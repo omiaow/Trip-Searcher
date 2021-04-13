@@ -15,8 +15,7 @@ body{
   display: flex;
   flex-direction: column;
   max-width: 1800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0 auto;
 }
 
 main {
@@ -46,6 +45,8 @@ footer p{
   width: 100%;
 }
 
+/* ----- SEARCH PANNEL ----- */
+
 .searchPanel{
   width: 100%;
   background-color: #30475e;
@@ -54,10 +55,7 @@ footer p{
 .searchPanel h1{
   color: #ffffff;
   width: 86%;
-  margin-top:	0px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0 auto;
   font-size: 2.5em;
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
@@ -68,13 +66,12 @@ footer p{
   background-color: #30475e;
   padding: 5px 0;
   height: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0 auto;
   color: white;
   text-align: center;
 }
 
-/* ----- RESPONSIVE VARIANT ----- */
+/* ----- MOBILE VARIANT ----- */
 .responsive_search{
   margin-top: 15px;
   width: 100%;
@@ -82,57 +79,47 @@ footer p{
   max-width: 420px;
 }
 
-.responsive_search .from{
+.responsive_search .from, .responsive_search .date, .responsive_search .to{
   width: 90%;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
   min-height: 40px;
   padding: 1px 0px;
   border-radius: 10px;
   border: 0.5px solid #fff;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.responsive_search .from h2{
+.responsive_search .from h2, .responsive_search .date h2{
   color: white;
   width: 16%;
   max-width: 60px;
-  margin-top: -13px;
-  margin-bottom: 0px;
-  margin-left: 5%;
+  margin: -13px 0 0 5%;
   background: #34495E;
   font-variant: small-caps;
   text-align: center;
   font-size: 17px;
 }
 
-.responsive_search .from p{
+.responsive_search .from p, .responsive_search .date p{
   color: white;
-  margin-top: 3px;
-  margin-bottom: 5px;
-  margin-left: 3%;
+  margin: 3px 0 5px 3%;
   text-align: left;
   font-size: 15px;
   font-family: Arial, Courier, sans-serif;
 }
 
-.responsive_search .to{
-  width: 90%;
+.responsive_search .date{
   margin-top: 20px;
-  min-height: 40px;
-  padding: 1px 0px;
-  border-radius: 10px;
-  border: 0.5px solid #fff;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.responsive_search .to{
+  margin-top: 20px;
   background-color: white;
 }
 
 .responsive_search .to .icon{
   width: 10%;
   max-width: 30px;
-  margin-left: 1%;
-  margin-top: 5px;
+  margin: 5px 0 0 1%;
   height: 30px;
   border-radius: 10px;
   float: left;
@@ -147,49 +134,14 @@ footer p{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-right: 1%;
-  margin-top: 12px;
+  margin: 12px 1% 0 0;
   text-align: center;
   float: left;
 }
 
-.responsive_search .date{
-  width: 90%;
-  margin-top: 25px;
-  min-height: 40px;
-  padding: 1px 0px;
-  border-radius: 10px;
-  border: 0.5px solid #fff;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.responsive_search .date h2{
-  color: white;
-  width: 16%;
-  max-width: 60px;
-  margin-top: -13px;
-  margin-bottom: 0px;
-  margin-left: 5%;
-  background: #34495E;
-  font-variant: small-caps;
-  text-align: center;
-  font-size: 17px;
-}
-
-.responsive_search .date p{
-  color: white;
-  margin-top: 3px;
-  margin-bottom: 5px;
-  margin-left: 3%;
-  text-align: left;
-  font-size: 15px;
-  font-family: Arial, Courier, sans-serif;
-}
-
 .responsive_search input[type=submit]{
   width: 90%;
-  margin-top: 25px;
+  margin: 25px 5% 0 5%;
   height: 43px;
   background-color: #7EC9A1;
   color: white;
@@ -201,8 +153,6 @@ footer p{
   font-size: 20px;
   font-weight: bold;
   outline: none;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 .responsive_search .input{
@@ -215,10 +165,11 @@ footer p{
   z-index: 2;
 }
 
+/* ----- MOBILE INPUT ----- */
+
 .input .exit{
-  margin-top: 10px;
+  margin: 10px 3% 0 0;
   width: 40px;
-  margin-right: 3%;
   height: 40px;
   border-radius: 20px;
   font-size: 2.2em;
@@ -229,9 +180,8 @@ footer p{
 }
 
 .input .inputName{
-  margin-top: 10px;
+  margin: 10px 0 0 5%;
   width: 70%;
-  margin-left: 5%;
   height: 40px;
   float: left;
   color: #34495E;
@@ -241,10 +191,8 @@ footer p{
 }
 
 .input .fromInput{
-  margin-top: 10px;
+  margin: 10px 5% 0 5%;
   width: 86%;
-  margin-left: 5%;
-  margin-right: 5%;
   height: 38px;
   border-radius: 10px;
   border: 1px solid #34495E;
@@ -254,10 +202,8 @@ footer p{
 }
 
 .input .collectTag{
-  margin-top: 5px;
+  margin: 5px 5% 0 5%;
   width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
   min-height: 5px;
   float: left;
   display: flex;
@@ -273,8 +219,7 @@ footer p{
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 2%;
-  margin-bottom: 5px;
+  margin: 0 2% 5px 0;
 }
 
 .input .collectTag span{
@@ -288,8 +233,7 @@ footer p{
 
 .input .collectTag .close{
   float: right;
-  margin-left: 5px;
-  margin-right: 3px;
+  margin: 0 3px 0 5px;
   width: 24px;
   height: 24px;
   border-radius: 12px;
@@ -302,9 +246,8 @@ footer p{
 }
 
 .input .toInput{
-  margin-top: 5px;
+  margin: 5px 0 0 5%;
   width: calc(90% - 60px);
-  margin-left: 5%;
   height: 38px;
   border-radius: 10px 0 0 10px;
   border: 1px solid #34495E;
@@ -344,8 +287,7 @@ footer p{
   float: left;
   color: #34495E;
   font-size: 1.3em;
-  padding: 9px 0;
-  padding-left: 5%;
+  padding: 9px 0 9px 5%;
   border-bottom: 1px solid #C8C8C8;
 }
 
@@ -353,8 +295,7 @@ footer p{
 .input .weekNames{
   width: 90%;
   min-height: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
   float: left;
   border-bottom: 1px solid #34495E;
 }
@@ -385,9 +326,7 @@ footer p{
   width: 90%;
   min-height: 10px;
   max-height: 400px;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 5px;
+  margin: 10px 5% 0 5%;
   float: left;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -396,9 +335,7 @@ footer p{
 .input .monthBox .monthName{
   width: 90%;
   min-height: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 10px;
+  margin: 10px 5% 0 5%;
   float: left;
   font-size: 1.5em;
   font-weight: bold;
@@ -413,6 +350,16 @@ footer p{
   float: left;
 }
 
+.input .monthBox .dates .passed, .input .monthBox .dates .today, .input .monthBox .dates .days, .input .monthBox .dates .choosedFrom, .input .monthBox .dates .selected, .input .monthBox .dates .choosedTill{
+  margin-top: 2px;
+  width: 14.2%;
+  height: 20px;
+  float: left;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+}
+
 .input .monthBox .dates .empty{
   margin-top: 2px;
   width: 14.2%;
@@ -421,79 +368,36 @@ footer p{
 }
 
 .input .monthBox .dates .passed{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: gray;
 }
 
 .input .monthBox .dates .today{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: #A93226;
 }
 
 .input .monthBox .dates .days{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: #34495E;
 }
 
 .input .monthBox .dates .choosedFrom{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: white;
-  border-radius: 15px 0 0 15px;
   background-color: #34495E;
+  border-radius: 15px 0 0 15px;
 }
 
 .input .monthBox .dates .selected{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: white;
   background-color: #34495E;
 }
 
 .input .monthBox .dates .choosedTill{
-  margin-top: 2px;
-  width: 14.2%;
-  height: 20px;
-  float: left;
-  font-size: 1.2em;
-  text-align: center;
-  padding: 10px 0;
   color: white;
-  border-radius: 0 15px 15px 0;
   background-color: #34495E;
+  border-radius: 0 15px 15px 0;
 }
 
 .input input[type=submit]{
   width: 90%;
-  margin-top: 15px;
   height: 43px;
   background-color: #7EC9A1;
   color: white;
@@ -505,16 +409,15 @@ footer p{
   font-size: 22px;
   font-weight: bold;
   outline: none;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 15px 5% 0 5%;
 }
 
 /* ----- DESKTOP VARIANT ----- */
+
 .desktop_search{
   width: 95%;
   min-height: 80px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .desktop_search .from{
@@ -545,10 +448,7 @@ footer p{
   box-sizing: border-box;
   font-weight: bold;
   font-size: 0.8em;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5%;
-  padding-right: 1%;
+  padding: 5px 1% 5px 5%;
   color: white;
   display: flex;
   flex-wrap: wrap;
@@ -572,14 +472,11 @@ footer p{
   max-width: 80%;
   background-color: #7EC9A1;
   border-radius: 13px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 0 2%;
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 2%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 2% 5px 0;
 }
 
 .desktop_search .from .fromTag .tag span{
@@ -606,8 +503,7 @@ footer p{
 
 .desktop_search .to p{
   float: right;
-  margin: 0px;
-  margin-right: 3%;
+  margin: 0 3% 0 0;
   font-variant: small-caps;
   font-size: 0.8em;
   color: lightgrey;
@@ -626,10 +522,7 @@ footer p{
   box-sizing: border-box;
   font-size: 0.8em;
   font-weight: bold;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding: 5px 1% 5px 1%;
   color: white;
   display: flex;
   flex-wrap: wrap;
@@ -652,15 +545,11 @@ footer p{
   height: 30px;
   background-color: #7EC9A1;
   border-radius: 13px;
-  padding-left: 1%;
-  padding-right: 0.75%;
-  padding-top: 0px;
+  padding: 0 0.75% 0 1%;
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 1%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 1% 5px 0;
 }
 
 .desktop_search .to .toTag .tag span{
@@ -712,7 +601,7 @@ footer p{
   color: #ffffff !important;
 }
 
-/* ----- DATES ----- */
+/* ----- DESKTOP CALENDAR ----- */
 
 .desktop_search .dates{
   width: 16%;
@@ -745,14 +634,10 @@ footer p{
 	height: 315px;
 	width: 200%;
   min-width: 460px;
-	margin-top: 70px;
-  margin-left: -275px;
+	margin: 70px 0 0 -275px;
 	background-color: White;
 	border-radius: 10px;
-	border-left: 1px solid white;
-	border-right: 1px solid white;
-	border-bottom: 1px solid #34495E;
-	border-top: 1px solid white;
+	border: 1px solid white;
 	float: right;
   z-index: 2;
 	box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.3), 8px 8px 8px 0 rgba(0, 0, 0, 0.3);
@@ -762,15 +647,12 @@ footer p{
 	position: absolute;
 	width: 10px;
 	height: 10px;
-	border-bottom: 0px solid white;
-	border-right:  0px solid white;
 	border-top: 1px solid white;
 	border-left:  1px solid white;
 	top: -11px;
 	content: '';
 	transform: rotate(45deg);
-	margin-top: 5px;
-	margin-left: 35%;
+	margin: 5px 0 0 35%;
 	background-color: #34495E;
 }
 
@@ -784,13 +666,24 @@ footer p{
   color: white;
 }
 
-.desktop_search .dates .calendarWindow .calendarHeader .left{
+.desktop_search .dates .calendarWindow .calendarHeader .left, .right{
   height: 35px;
   width: 4%;
+  cursor: pointer;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .left{
   margin-left: 1%;
   float: left;
-  cursor: pointer;
   background: url("images/wlefts.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .right{
+  margin-right: 1%;
+  float: right;
+  background: url("images/wrights.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -799,37 +692,23 @@ footer p{
   height: 40px;
   width: 88%;
   float: left;
-  margin-left: 1%;
-  margin-right: 1%;
+  margin: 0 1%;
 }
 
-.desktop_search .dates .calendarWindow .calendarHeader .monthDescription .leftSide{
+.desktop_search .dates .calendarWindow .calendarHeader .monthDescription .leftSide, .rightSide{
   width: 45%;
   margin-top: 10px;
   color: White;
-  float: left;
   font-weight: bold;
   font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .calendarHeader .monthDescription .leftSide{
+  float: left;
 }
 
 .desktop_search .dates .calendarWindow .calendarHeader .monthDescription .rightSide{
-  width: 45%;
-  margin-top: 10px;
-  color: white;
   float: right;
-  font-weight: bold;
-  font-variant: normal;
-}
-
-.desktop_search .dates .calendarWindow .calendarHeader .right{
-  height: 35px;
-  width: 4%;
-  margin-right: 1%;
-  float: right;
-  cursor: pointer;
-  background: url("images/wrights.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth{
@@ -838,17 +717,18 @@ footer p{
   border-radius: 0 0 10px 10px;
 }
 
-.desktop_search .dates .calendarWindow .twoMonth .leftMonth{
+.desktop_search .dates .calendarWindow .twoMonth .leftMonth, .rightMonth{
   height: 250px;
   width: 49%;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .leftMonth{
   margin-left: 0.5%;
   float: left;
   border-right: 1px solid #34495E;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .rightMonth{
-  height: 250px;
-  width: 49%;
   margin-right: 0.5%;
   float: right;
   border-left: 1px solid #34495E;
@@ -859,112 +739,62 @@ footer p{
   height: 35px;
 }
 
-.desktop_search .dates .calendarWindow .twoMonth .weekNames .weekdays{
+.desktop_search .dates .calendarWindow .twoMonth .weekNames .weekdays, .weekends{
   width: 14.2%;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 10px 0 5px 0;
   float: left;
-  color: #34495E;
   font-family: "Gill Sans", sans-serif;
   font-variant: normal;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .weekNames .weekdays{
+  color: #34495E;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .weekNames .weekends{
-  width: 14.2%;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  float: left;
   color: #A93226;
-  font-family: "Gill Sans", sans-serif;
-  font-variant: normal;
 }
 
-.desktop_search .dates .calendarWindow .twoMonth .empty{
+.desktop_search .dates .calendarWindow .twoMonth .empty, .past,  .days, .today, .inserting, .selected{
   width: 14.2%;
-  margin-top: 1px;
-  height: 34px;
-  margin: 0;
+  margin: 1px 0 0 0;
+  height: 14px;
   float: left;
+  font-family: "Gill Sans", sans-serif;
+  font-variant: normal;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .past{
-  width: 14.2%;
-  margin-top: 1px;
-  height: 14px;
-  float: left;
   color: #A4A4A4;
-  font-family: "Gill Sans", sans-serif;
-  font-variant: normal;
   background-color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px 0;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .days{
-  width: 14.2%;
-  margin-top: 1px;
-  height: 14px;
-  float: left;
   color: #34495E;
-  font-family: "Gill Sans", sans-serif;
-  font-variant: normal;
   cursor: pointer;
   background-color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px 0;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .today{
-  width: 14.2%;
-  margin-top: 1px;
-  height: 14px;
-  float: left;
   color: #A93226;
-  font-family: "Gill Sans", sans-serif;
-  font-variant: normal;
   cursor: pointer;
   background-color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.desktop_search .dates .calendarWindow .twoMonth .today:hover{
-  background-color: #FF4D41;
-  color: white;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .inserting{
-  width: 14.2%;
-  margin-top: 1px;
-  height: 14px;
-  float: left;
-  color: white;
-  font-family: "Gill Sans", sans-serif;
-  font-variant: normal;
   cursor: pointer;
   background-color: #34495E;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px 0;
+  color: white;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .selected{
-  width: 14.2%;
-  margin-top: 1px;
-  height: 14px;
-  float: left;
-  color: white;
-  font-family: "Gill Sans", sans-serif;
-  border-radius: 15px 0 0 15px;
-  font-variant: normal;
   cursor: pointer;
   background-color: #34495E;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px 0;
+  color: white;
+  border-radius: 15px 0 0 15px;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .days:hover{
@@ -972,13 +802,18 @@ footer p{
   color: #fff;
 }
 
-.desktop_search .dates .calendarWindow .twoMonth .selected:hover{
-  background-color: #A93226;
-  border-radius: 0;
+.desktop_search .dates .calendarWindow .twoMonth .today:hover{
+  background-color: #FF4D41;
+  color: white;
 }
 
 .desktop_search .dates .calendarWindow .twoMonth .inserting:hover{
   background-color: #7EC9A1;
+}
+
+.desktop_search .dates .calendarWindow .twoMonth .selected:hover{
+  background-color: #A93226;
+  border-radius: 0;
 }
 
 .desktop_search input[type=submit]{
@@ -998,6 +833,12 @@ footer p{
   margin-top: 18px;
 }
 
+/* ----- LOADING ----- */
+
+.loading{
+  width: 100%;
+  height: 8px;
+}
 
 /* ----- RESULTS PAGE ----- */
 .result{
@@ -1008,12 +849,9 @@ footer p{
 
 .result .header{
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 10px 2% 10px 2%;
   min-height: 10px;
   float: left;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .result .header button{
@@ -1055,18 +893,11 @@ footer p{
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.29), 0 3px 10px 0 rgba(0, 0, 0, 0.29);
 }
 
-.loading{
-  width: 100%;
-  height: 8px;
-}
-
 .result .location, .total{
   color: #34495E;
   min-width: 1%;
   float: left;
-  margin: 0px;
-  margin-left: 5%;
-  margin-bottom: 5px;
+  margin: 0px 0 5px 5%;
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
 }
@@ -1093,8 +924,7 @@ footer p{
 
 .result .left_button{
   width: 2%;
-  margin-right: 1%;
-  margin-left: 2%;
+  margin: 0 1% 0 2%;
   cursor: pointer;
   height: 70px;
   float: left;
@@ -1105,8 +935,7 @@ footer p{
 
 .result .right_button{
   width: 2%;
-  margin-left: 1%;
-  margin-right: 2%;
+  margin: 0 2% 0 1%;
   cursor: pointer;
   height: 70px;
   float: left;
@@ -1119,8 +948,7 @@ footer p{
   width: 200px;
   min-height: 100px;
   float: left;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 0 5px;
   flex: 0 0 auto;
   background-color: #E5E7E9;
 	border-radius: 7px;
@@ -1140,8 +968,7 @@ footer p{
   font-size: 55px;
 	font-weight: bold;
 	text-align: center;
-	margin-top: 5px;
-	margin-left: 5%;
+	margin: 5px 0 0 5%;
 }
 
 .result .ticket_list .daily_list .header .month_weeks{
@@ -1156,8 +983,7 @@ footer p{
 	color: #922B21;
   font-size: 18px;
 	font-weight: bold;
-	margin-top: 5px;
-	margin-left: 15px;
+	margin: 5px 0 0 15px;
   letter-spacing: 0.3px;
   overflow: hidden;
   white-space: nowrap;
@@ -1177,9 +1003,7 @@ footer p{
 	float: left;
 	width: 96%;
 	height: 33px;
-	margin-left: 1.5%;
-	margin-right: 1.5%;
-	margin-bottom: 5px;
+	margin: 0 1.5% 5px 1.5%;
 	border-radius: 7px;
 	cursor: pointer;
 	vertical-align: middle;
@@ -1227,9 +1051,7 @@ footer p{
 	float: left;
 	width: 96%;
 	height: 33px;
-	margin-left: 1.5%;
-	margin-right: 1.5%;
-	margin-bottom: 5px;
+	margin: 0 1.5% 5px 1.5%;
 	border-radius: 7px;
 	vertical-align: middle;
 	line-height: 33px;
@@ -1240,8 +1062,7 @@ footer p{
 
 .result .color_description{
 	width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 	min-height: 35px;
   overflow: auto;
 }
@@ -1266,8 +1087,7 @@ footer p{
 	color: #34495E;
 	min-width: 100px;
 	float: left;
-	margin-top: 8px;
-	margin-left: 10px;
+	margin: 8px 0 0 10px;
 	font-size: 15px;
 	font-weight: bold;
   font-variant: small-caps;
@@ -1277,14 +1097,14 @@ footer p{
   text-overflow: ellipsis;
 }
 
-/* ----- TICKETS ----- */
-.ticket_borders{
+.result .ticket_borders{
   float: left;
   min-height: 10px;
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 0 2%;
 }
+
+/* ----- TICKETS ----- */
 
 .tickets{
   float: left;
@@ -1296,19 +1116,14 @@ footer p{
 .tickets h3{
   color: #34495E;
   width: 90%;
-  margin-top:	5px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
+  margin:	5px auto 0 auto;
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
 }
 
 .tickets .left_button{
   width: 30px;
-  margin-right: 10px;
-  margin-left: 0;
-  margin-top: 30px;
+  margin: 30px 10px 0 0;
   cursor: pointer;
   height: 70px;
   float: left;
@@ -1319,9 +1134,7 @@ footer p{
 
 .tickets .right_button{
   width: 30px;
-  margin-right: 0;
-  margin-left: 10px;
-  margin-top: 30px;
+  margin: 30px 0 0 10px;
   cursor: pointer;
   height: 70px;
   float: left;
@@ -1348,10 +1161,7 @@ footer p{
 .tickets .ticket_screen .ticket{
   width: 220px;
   min-height: 220px;
-  margin-top: 12px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 12px 15px 15px 15px;
   background-color: #E5E7E9;
   cursor: pointer;
   float: left;
@@ -1373,9 +1183,7 @@ footer p{
 	border-radius: 10px;
 	border: 1px solid #A93226;
 	background-color: #A93226;
-	margin-top: -10px;
-	margin-right: -8px;
-	margin-bottom: -15px;
+	margin: -10px -8px -15px 0;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 18px;
@@ -1389,10 +1197,7 @@ footer p{
 .tickets .ticket_screen .ticket .border{
   width: 200px;
   min-height: 200px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 9px;
-  margin-right: 9px;
+  margin: 10px 9px 10px 9px;
   float: left;
   border: 1px dashed #34495E;
 }
@@ -1400,8 +1205,7 @@ footer p{
 .tickets .ticket_screen .ticket .border .description{
   float: left;
   width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
   font-size: 0.8em;
   font-variant: small-caps;
   font-weight: bold;
@@ -1411,8 +1215,7 @@ footer p{
 .tickets .ticket_screen .ticket .border .data_words{
   float: left;
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 0 2%;
   font-size: 0.9em;
   text-align: center;
   color: #34495E;
@@ -1424,8 +1227,7 @@ footer p{
 .tickets .ticket_screen .ticket .border .price{
   float: left;
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 0 2%;
   font-size: 1em;
   font-weight: bold;
   text-align: center;
@@ -1435,9 +1237,7 @@ footer p{
 .tickets .ticket_screen .ticket .border .company{
   float: left;
   width: 96%;
-  margin-top: 5px;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 5px 2% 0 2%;
   font-size: 0.9em;
   border-top: 1px solid #34495E;
   padding: 5px 0;
@@ -1464,31 +1264,25 @@ footer p{
 
 .tickets .share span{
   float: left;
-  margin: 0;
+  margin: 0 10px 0 0;
   color: #34495E;
-  margin-right: 10px;
   font-size: 25px;
 }
 
-/************************************************************************************/
+/* ----- TRIP CONTROLL PANEL ----- */
 
 .right_pannel{
-  margin-top: 5px;
+  margin: 5px 0 10px 2%;
 	float: left;
-  margin-left: 2%;
 	min-height: 100px;
   padding: 1px 0;
   overflow: auto;
-  margin-bottom: 10px;
 }
 
 .right_pannel h3{
   color: #34495E;
   width: 90%;
-  margin-top:	5px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
+  margin:	5px auto 0px auto;
   font-size: 1.5em;
   font-family: "Times New Roman", Times, serif;
 }
@@ -1507,8 +1301,7 @@ footer p{
   width: 60%;
   position: relative;
   padding-left: 22px;
-  margin-bottom: 1px;
-  margin-top: 20px;
+  margin: 20px 0 2px 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1521,8 +1314,7 @@ footer p{
   position: absolute;
   width: 80%;
   font-size: 0.9em;
-  margin-top: 1px;
-  margin-left: 5%;
+  margin-top: 2px 0 0 5%;
   color: #34495E;
   overflow: hidden;
   white-space: nowrap;
@@ -1612,7 +1404,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-/******************************************************************************/
+/* ----- TRIP PAGE STYLE ----- */
 
 .trips{
   margin-top: 20px;
@@ -1624,8 +1416,7 @@ input::-webkit-inner-spin-button {
 
 .trips .list{
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin: 0 2%;
 }
 
 .trips .trip{
@@ -1633,8 +1424,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   float: left;
   min-height: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -1681,14 +1471,12 @@ input::-webkit-inner-spin-button {
 .trips .special_offer{
   border-top: 2px solid #7EC9A1;
   border-bottom: 2px solid #7EC9A1;
+  border-radius: 7px;
   min-height: 15px;
   cursor: pointer;
   width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
-  border-radius: 7px;
+  margin: 0 2% 5px 2%;
   float: left;
-  margin-bottom: 5px;
 }
 
 .trips .special_offer .name{

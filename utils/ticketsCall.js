@@ -22,7 +22,6 @@ export default async function show(data, update){
         while(j<tickets.length && tickets[j].direct == data.direct[i]) j++;
         if(j<tickets.length) update(tickets[j]);
       }
-
     }
 
   }
