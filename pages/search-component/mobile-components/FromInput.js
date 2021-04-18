@@ -25,14 +25,16 @@ class AutocompleteFrom extends React.Component {
     if(this.state.url != window.location.search){
       const queryString = require('query-string');
       const parsed = queryString.parse(window.location.search);
-      let id = parsed.Origin.split(' ')[0];
-      let i=0;
-      while(i<CityList.length && CityList[i].id != id) i++;
-      let city = "";
-      if(i<CityList.length){
-        city = CityList[i].loc;
+      if(parsed.Origin !== undefined){
+        let id = parsed.Origin.split(' ')[0];
+        let i=0;
+        while(i<CityList.length && CityList[i].id != id) i++;
+        let city = "";
+        if(i<CityList.length){
+          city = CityList[i].loc;
+        }
+        this.setState({url: window.location.search, placeholder: city, value: "", id: id});
       }
-      this.setState({url: window.location.search, placeholder: city, value: "", id: id});
     }
   }
 

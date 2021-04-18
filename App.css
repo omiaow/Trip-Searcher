@@ -1492,3 +1492,30 @@ input::-webkit-inner-spin-button {
 .trips .special_offer .name:hover{
   text-decoration: underline;
 }
+
+/* ----- NOT FOUND ----- */
+
+.not_found{
+  width: 100%;
+  min-height: 300px;
+  text-align: center;
+}
+
+.not_found h1{
+  font-weight: bold;
+  font-size: 2em;
+  color: grey;
+  letter-spacing: 0.5px;
+}
+
+.not_found a{
+  font-weight: bold;
+  font-size: 1em;
+  color: #34495E;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.not_found a:hover{
+  text-decoration: underline;
+}

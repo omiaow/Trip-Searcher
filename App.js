@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Tickets from './pages/Tickets';
+import NotFound from './pages/NotFound';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route exact path="/" component={Home}/>
             <Route path="/search" component={Search}/>
             <Route path="/tickets" component={Tickets}/>
+            <Route path='*' exact={true} component={NotFound}/>
           </Switch>
           </main>
           <footer><p>Footer</p></footer>

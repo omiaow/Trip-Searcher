@@ -26,17 +26,19 @@ class Calendar extends React.Component {
     if(this.state.url != window.location.search){
       const queryString = require('query-string');
       const parsed = queryString.parse(window.location.search);
-      const fromDate = new Date(parsed.fromDate);
-      const toDate = new Date(parsed.toDate);
-      this.setState({
-        url: window.location.search,
-        placeholderFrom: `${fromDate.getDate()} ${shortMonthNames[fromDate.getMonth()]}, ${fromDate.getFullYear()}`,
-        placeholderTo: `${toDate.getDate()} ${shortMonthNames[toDate.getMonth()]}, ${toDate.getFullYear()}`,
-        valueFrom: parsed.fromDate,
-        valueTo: parsed.toDate,
-        departure: new Date(parsed.fromDate),
-        arrival: new Date(parsed.toDate),
-      });
+      if(parsed.fromDate !== undefined && parsed.toDate !== undefined){
+        const fromDate = new Date(parsed.fromDate);
+        const toDate = new Date(parsed.toDate);
+        this.setState({
+          url: window.location.search,
+          placeholderFrom: `${fromDate.getDate()} ${shortMonthNames[fromDate.getMonth()]}, ${fromDate.getFullYear()}`,
+          placeholderTo: `${toDate.getDate()} ${shortMonthNames[toDate.getMonth()]}, ${toDate.getFullYear()}`,
+          valueFrom: parsed.fromDate,
+          valueTo: parsed.toDate,
+          departure: new Date(parsed.fromDate),
+          arrival: new Date(parsed.toDate),
+        });
+      }
     }
   }
 

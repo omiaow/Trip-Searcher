@@ -30,15 +30,17 @@ class Calendar extends React.Component {
     if(this.state.url != window.location.search){
       const queryString = require('query-string');
       const parsed = queryString.parse(window.location.search);
-      const fromDate = new Date(parsed.fromDate);
-      const toDate = new Date(parsed.toDate);
-      this.setState({
-        url: window.location.search,
-        departure_string: `${shortWeekNames[fromDate.getDay()]}, ${fromDate.getDate()}-${shortMonthNames[fromDate.getMonth()]}`,
-        return_string: `${shortWeekNames[toDate.getDay()]}, ${toDate.getDate()}-${shortMonthNames[toDate.getMonth()]}`,
-        departureInput: parsed.fromDate,
-        returnInput: parsed.toDate
-      });
+      if(parsed.fromDate !== undefined && parsed.toDate !== undefined){
+        const fromDate = new Date(parsed.fromDate);
+        const toDate = new Date(parsed.toDate);
+        this.setState({
+          url: window.location.search,
+          departure_string: `${shortWeekNames[fromDate.getDay()]}, ${fromDate.getDate()}-${shortMonthNames[fromDate.getMonth()]}`,
+          return_string: `${shortWeekNames[toDate.getDay()]}, ${toDate.getDate()}-${shortMonthNames[toDate.getMonth()]}`,
+          departureInput: parsed.fromDate,
+          returnInput: parsed.toDate
+        });
+      }
     }
   }
 

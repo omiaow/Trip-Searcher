@@ -26,22 +26,24 @@ class AutocompleteTo extends React.Component {
     if(this.state.url != window.location.search){
       const queryString = require('query-string');
       const parsed = queryString.parse(window.location.search);
-      let idList = parsed.Destinations.split(' ');
-      let ids = idList.slice(0, idList.length-1);
-      let tags = [];
-      let placeholder = "";
-      for(let id=0; id<ids.length; id++){
-        let i=0;
-        while(i<CityList.length && CityList[i].id != ids[id]) i++;
-        let city = "";
-        if(i<CityList.length){
-          city = CityList[i].loc;
+      if(parsed.Destinations !== undefined){
+        let idList = parsed.Destinations.split(' ');
+        let ids = idList.slice(0, idList.length-1);
+        let tags = [];
+        let placeholder = "";
+        for(let id=0; id<ids.length; id++){
+          let i=0;
+          while(i<CityList.length && CityList[i].id != ids[id]) i++;
+          let city = "";
+          if(i<CityList.length){
+            city = CityList[i].loc;
+          }
+          let loc = city.split(',')[0];
+          tags.push({loc: loc, id: CityList[i].id});
+          placeholder += `${loc}, `;
         }
-        let loc = city.split(',')[0];
-        tags.push({loc: loc, id: CityList[i].id});
-        placeholder += `${loc}, `;
+        this.setState({url: window.location.search, placeholder: placeholder.slice(0, placeholder.length-2), value: "", tags: tags});
       }
-      this.setState({url: window.location.search, placeholder: placeholder.slice(0, placeholder.length-2), value: "", tags: tags});
     }
   }
 

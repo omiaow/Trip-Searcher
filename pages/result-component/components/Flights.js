@@ -24,7 +24,7 @@ class Flights extends React.Component {
   }
 
   update(){
-    if(this.state.data === undefined || this.props.data.length !== this.state.data.length)
+    if(this.state.data === undefined || this.props.data.length !== this.state.data.length){
       this.setState({
         data: this.props.data,
         location: this.props.myLocation,
@@ -32,6 +32,7 @@ class Flights extends React.Component {
         initialLocation: this.props.myLocation,
         initialDate: this.props.fromDate
       });
+    }
   }
 
   moveRight(){

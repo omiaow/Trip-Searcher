@@ -79,7 +79,7 @@ function getCheapestTripOnSelectedDate(origin, finalOrigin, date, cities, data, 
   }
 }
 
-// Start Engine
+// Start the Engine
 export default function searchEngine(origin, data, filter){
 
   let result = [];

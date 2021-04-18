@@ -1,10 +1,10 @@
 import React from 'react';
-import DesktopFromInput from './desktop_components/FromInput';
-import DesktopToInput from './desktop_components/ToInput';
-import DesktopCalendar from './desktop_components/Calendar';
-import MobileFromInput from './mobile_components/FromInput';
-import MobileToInput from './mobile_components/ToInput';
-import Calendar from './mobile_components/Calendar';
+import DesktopFromInput from './desktop-components/FromInput';
+import DesktopToInput from './desktop-components/ToInput';
+import DesktopCalendar from './desktop-components/Calendar';
+import MobileFromInput from './mobile-components/FromInput';
+import MobileToInput from './mobile-components/ToInput';
+import MobileCalendar from './mobile-components/Calendar';
 import {withRouter} from 'react-router-dom';
 
 class SearchTool extends React.Component {
@@ -66,7 +66,7 @@ class SearchTool extends React.Component {
           <div className="responsive_search">
             <MobileFromInput displayInput={this.state.displayFromInput} changeInput={this.changeInput} />
             <MobileToInput displayInput={this.state.displayToInput} changeInput={this.changeInput} />
-            <Calendar displayInput={this.state.displayCalendarInput} changeInput={this.changeInput} search={this.search} />
+            <MobileCalendar displayInput={this.state.displayCalendarInput} changeInput={this.changeInput} search={this.search} />
             <input type="submit" value="search" onClick={() => this.search(this.props.history)}/>
           </div>
         ) : (

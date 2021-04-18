@@ -1,6 +1,7 @@
 import React from 'react';
-import SearchTool from './searchTool/SearchTool';
-import RenderTickets from './results/components/Tickets';
+import NotFound from './NotFound';
+import SearchComponent from './search-component/SearchComponent';
+import RenderTickets from './result-component/components/Tickets';
 import {withRouter} from 'react-router-dom';
 import ticketsCall from '../utils/ticketsCall';
 
@@ -22,8 +23,11 @@ class Tickets extends React.Component {
     let query = this.props.location.search;
     const queryString = require('query-string');
     const parsed = queryString.parse(query);
-    ticketsCall(parsed, this.update);
-    this.setState({url: `${this.state.url}?Origin=${parsed.Origin}&Destinations=${parsed.Destinations}&fromDate=${parsed.fromDate}&toDate=${parsed.toDate}`});
+    if(parsed.from !== undefined && parsed.to !== undefined && parsed.date !== undefined && new Date().getTime() < new Date(parsed.date[0]) &&
+       parsed.Origin !== undefined && parsed.Destinations !== undefined && parsed.fromDate !== undefined && parsed.toDate !== undefined){
+      ticketsCall(parsed, this.update);
+      this.setState({url: `${this.state.url}?Origin=${parsed.Origin}&Destinations=${parsed.Destinations}&fromDate=${parsed.fromDate}&toDate=${parsed.toDate}`});
+    }
   }
 
   render(){
@@ -32,14 +36,16 @@ class Tickets extends React.Component {
         <div className="searchPanel" style={{minHeight: window.innerHeight/3}}>
           <div className="header" style={{height: '25px'}}></div>
           <h1>Search Flights</h1>
-          <SearchTool/>
+          <SearchComponent/>
         </div>
         <div className="result" id="result">
           <div className="header">
             <a href={this.state.url} style={({backgroundColor: "#ffffff", color: "#34495E"})}>search other options</a>
           </div>
           <div className="ticket_borders">
-            <RenderTickets tickets={this.state.tickets} total={this.state.total} width={window.innerWidth*(96/100)} />
+            {(this.state.tickets.length > 0) ?
+                <RenderTickets tickets={this.state.tickets} total={this.state.total} width={window.innerWidth*(96/100)} /> :
+                <NotFound/>}
           </div>
         </div>
       </>
