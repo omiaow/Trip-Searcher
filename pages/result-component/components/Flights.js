@@ -24,7 +24,8 @@ class Flights extends React.Component {
   }
 
   update(){
-    if(this.state.data === undefined || this.props.data.length !== this.state.data.length){
+    const props = (this.props.data !== undefined && this.props.myLocation !== undefined && this.props.fromDate !== undefined);
+    if(props && (this.state.data === undefined || this.props.data.length !== this.state.data.length)){
       this.setState({
         data: this.props.data,
         location: this.props.myLocation,
