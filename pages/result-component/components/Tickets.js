@@ -1,5 +1,5 @@
 import React from 'react';
-import {shortMonthNames} from '../../../utils/tools';
+import {shortMonthNames} from '../../../utils/state';
 import { FacebookMessengerShareButton, WhatsappShareButton, TelegramShareButton } from 'react-share';
 import { FacebookMessengerIcon, WhatsappIcon, TelegramIcon } from 'react-share';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {monthNames, shortMonthNames} from '../../../utils/tools';
+import {monthNames, shortMonthNames} from '../../../utils/state';
 
 class Calendar extends React.Component {
 

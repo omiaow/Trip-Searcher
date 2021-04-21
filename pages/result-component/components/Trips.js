@@ -1,8 +1,7 @@
 import React from 'react';
 import Tickets from './Tickets';
 import { Switch, Route } from 'react-router-dom';
-import { createFilterState, sortPrices, monthNames, specialOffer } from '../../../utils/tools';
-import searchEngine from '../../../utils/searchEngine';
+import { createFilterState, sortPrices, monthNames, specialOffer, searchEngine } from '../../../utils/state';
 
 class Result extends React.Component {
 

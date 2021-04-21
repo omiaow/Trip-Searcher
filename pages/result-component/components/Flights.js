@@ -1,6 +1,6 @@
 import React from 'react';
 import Tickets from './Tickets';
-import {weekNames, monthNames} from '../../../utils/tools';
+import {weekNames, monthNames} from '../../../utils/state';
 
 class Flights extends React.Component {
 

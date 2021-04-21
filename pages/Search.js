@@ -2,7 +2,7 @@ import React from 'react';
 import NotFound from './NotFound';
 import SearchComponent from './search-component/SearchComponent';
 import Result from './result-component/Result';
-import flightsCall from '../utils/flightsCall';
+import {flightsCall} from '../utils/state';
 import {withRouter} from 'react-router-dom';
 
 class Search extends React.Component {

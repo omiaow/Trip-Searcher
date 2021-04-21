@@ -3,7 +3,7 @@ import NotFound from './NotFound';
 import SearchComponent from './search-component/SearchComponent';
 import RenderTickets from './result-component/components/Tickets';
 import {withRouter} from 'react-router-dom';
-import ticketsCall from '../utils/ticketsCall';
+import {ticketsCall} from '../utils/state';
 
 class Tickets extends React.Component {
 

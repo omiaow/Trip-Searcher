@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style/App.css';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Tickets from './pages/Tickets';

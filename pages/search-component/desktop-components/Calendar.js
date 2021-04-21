@@ -1,5 +1,5 @@
 import React from 'react';
-import {monthNames, shortWeekNames, shortMonthNames} from '../../../utils/tools';
+import {monthNames, shortWeekNames, shortMonthNames} from '../../../utils/state';
 
 class Calendar extends React.Component {
 
