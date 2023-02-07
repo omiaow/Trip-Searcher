@@ -1,0 +1,1 @@
+export default { all: 0, data: [] }
