@@ -6,16 +6,14 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Omurzak Keldibekov (Omiaow)",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
     "string-similarity-js": "^2.1.4",
-    "telegraf": "^4.11.2"
-  },
-  "devDependencies": {
+    "telegraf": "^4.11.2",
     "nodemon": "^2.0.20"
   }
 }
